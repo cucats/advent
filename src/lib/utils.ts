@@ -16,3 +16,11 @@ export const crsidFromEmail = (email: string): string | undefined => {
 
   return email.split("@")[0];
 };
+
+export const dateToQuestionNo = (date: string): string => {
+  return parseInt(date.split("-")[2]).toString();
+};
+
+export const questionNoToDate = (questionNo: string): string => {
+  return `2024-12-${questionNo.padStart(2, '0')}`;
+};
