@@ -26,6 +26,6 @@ export const questionNoToDate = (questionNo: string): string => {
 };
 
 export const getCurrentDate = () => {
-  // return new Date();
-  return new Date("2024-12-04T12:00:00");
+  return new Date();
+  // return new Date("2024-12-04T12:00:00");
 }

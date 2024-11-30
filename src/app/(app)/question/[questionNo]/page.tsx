@@ -6,6 +6,7 @@ export default async function Page(props: {
 }) {
   const params = await props.params;
   void trpc.getQuestion.prefetch({ questionNo: params.questionNo });
+  void trpc.getCurrentSession.prefetch();
 
   return <Question questionNo={params.questionNo} />;
 }

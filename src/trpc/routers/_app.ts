@@ -57,6 +57,12 @@ export const appRouter = createTRPCRouter({
       correct: question.answer === input.answer,
     });
   }),
+  getCurrentSession: baseProcedure.query(async ({ ctx }) => {
+    return {
+      user: ctx.user,
+      session: ctx.session,
+    }
+  }),
 });
 
 export type AppRouter = typeof appRouter;
