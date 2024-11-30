@@ -11,7 +11,7 @@ First, install the dependencies:
 npm install --force
 ```
 
-Then, start the development server:
+Then get the .env file from anyone who has it, and run the development server:
 
 ```bash
 npm run dev
