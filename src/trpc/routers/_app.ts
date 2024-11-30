@@ -4,6 +4,7 @@ import {
   questionsTable,
   questionTypeSchema,
   selectQuestionSchema,
+  usersTable,
 } from "@/db/schema";
 import { db } from "@/db";
 import { eq } from "drizzle-orm";
@@ -79,8 +80,6 @@ export const appRouter = createTRPCRouter({
       await db.insert(answersTable).values({
         userId: ctx.user.id,
         questionId: question.id,
-        answer: input.answer,
-        correct,
       });
 
       return {
@@ -93,6 +92,14 @@ export const appRouter = createTRPCRouter({
       session: ctx.session,
     };
   }),
+  setNickname: protectedProcedure
+    .input(z.object({ nickname: z.string().min(1).max(32) }))
+    .mutation(async ({ input, ctx }) => {
+      await db
+        .update(usersTable)
+        .set({ nickname: input.nickname })
+        .where(eq(usersTable.id, ctx.user.id));
+    }),
 });
 
 export type AppRouter = typeof appRouter;

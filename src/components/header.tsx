@@ -20,11 +20,6 @@ export const Header = async () => {
             [leaderboard]
           </h2>
         </Link>
-        <Link href="/profile" className="">
-          <h2 className="text-foreground hover:text-highlight text-nowrap">
-            [profile]
-          </h2>
-        </Link>
       </div>
 
       <AvatarAuth />

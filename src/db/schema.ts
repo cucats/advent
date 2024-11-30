@@ -1,7 +1,6 @@
 import {
   date,
   integer,
-  boolean,
   pgTable,
   text,
   timestamp,
@@ -17,6 +16,7 @@ export type QuestionType = z.infer<typeof questionTypeSchema>;
 export const usersTable = pgTable("users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   crsid: varchar({ length: 255 }).notNull().unique(),
+  nickname: varchar({ length: 255 }),
   googleId: varchar({ length: 255 }).notNull().unique(),
 });
 
@@ -57,11 +57,9 @@ export const answersTable = pgTable("answers", {
   questionId: integer("question_id")
     .notNull()
     .references(() => questionsTable.id),
-  answer: text().notNull(),
   timeCreated: timestamp("time_created", { withTimezone: true })
     .notNull()
     .defaultNow(),
-  correct: boolean().notNull().default(false),
 });
 
 export const selectAnswerSchema = createSelectSchema(answersTable);
