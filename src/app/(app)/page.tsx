@@ -18,7 +18,7 @@ export default async function Page() {
           {sortedQuestions.map((question) => (
             <div key={question.id} className="w-full flex justify-between">
               <Link
-                href={`/question/${dateToQuestionNo(question.date)}`}
+                href={`/2024/${dateToQuestionNo(question.date)}`}
                 className="flex items-center space-x-4"
               >
                 <h2 className="text-lg text-zinc-300 hover:text-zinc-100">

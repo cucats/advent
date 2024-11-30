@@ -16,14 +16,14 @@ export const QuestionTimer = ({ releaseDateTime }: { releaseDateTime: Date }) =>
   }
 
   if (hours > 48) {
-    return <p className="text-lg text-zinc-500">--:--:--</p>;
+    return <time dateTime={releaseDateTime.toISOString()} className="text-lg text-zinc-500">--:--:--</time>;
   }
 
   return (
-    <p className="text-lg text-zinc-500">
-      {String(hours).padStart(2, '0')}:
-      {String(minutes).padStart(2, '0')}:
-      {String(seconds).padStart(2, '0')}
-    </p>
+    <time dateTime={releaseDateTime.toISOString()} className="text-lg text-zinc-500">
+      {hours.toString().padStart(2, "0")}:
+      {minutes.toString().padStart(2, "0")}:
+      {seconds.toString().padStart(2, "0")}
+    </time>
   );
 };

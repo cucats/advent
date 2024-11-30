@@ -3,12 +3,12 @@ import { MarkdownRenderer } from "@/components/questions/markdown-renderer"
 import { TextAnswer } from "@/components/questions/text-answer"
 import { protectQuestion } from "@/lib/auth";
 
-const questionOneMarkdown = `
+const questionOneMarkdown = String.raw`
 # Question 1
 
 ...
 
-$\\sum_{i=1}^{10} i = 55$
+$\sum_{i=1}^{10} i = 55$
 `
 
 export default async function Page() {
@@ -22,6 +22,5 @@ export default async function Page() {
         <TextAnswer questionNo="1" />
       </div>
     </div>
-
   )
 }
