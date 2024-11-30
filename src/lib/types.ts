@@ -1,4 +1,3 @@
-
 import { z } from "zod";
 
 export const questionTypeSchema = z.enum(["euler", "leetcode", "multiplayer"]);

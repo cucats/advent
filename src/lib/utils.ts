@@ -1,8 +1,8 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export const crsidFromEmail = (email: string): string | undefined => {
@@ -22,10 +22,10 @@ export const dateToQuestionNo = (date: string): string => {
 };
 
 export const questionNoToDate = (questionNo: string): string => {
-  return `2024-12-${questionNo.padStart(2, '0')}`;
+  return `2024-12-${questionNo.padStart(2, "0")}`;
 };
 
 export const getCurrentDate = () => {
-  return new Date();
-  // return new Date("2024-12-04T12:00:00");
-}
+  // return new Date();
+  return new Date("2024-12-04T12:00:00");
+};

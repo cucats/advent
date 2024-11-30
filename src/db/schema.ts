@@ -1,6 +1,14 @@
-import { date, integer, boolean, pgTable, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import {
+  date,
+  integer,
+  boolean,
+  pgTable,
+  text,
+  timestamp,
+  varchar,
+} from "drizzle-orm/pg-core";
 import type { InferSelectModel } from "drizzle-orm";
-import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
 
 export const questionTypeSchema = z.enum(["euler", "leetcode", "multiplayer"]);
@@ -21,7 +29,7 @@ export const questionsTable = pgTable("questions", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   date: date().notNull(),
   type: text().notNull(),
-  answer: text()
+  answer: text(),
 });
 
 export const selectQuestionSchema = createSelectSchema(questionsTable, {
@@ -29,24 +37,30 @@ export const selectQuestionSchema = createSelectSchema(questionsTable, {
 });
 
 export const sessionsTable = pgTable("session", {
-	id: text("id").primaryKey(),
-	userId: integer("user_id")
-		.notNull()
-		.references(() => usersTable.id),
-	expiresAt: timestamp("expires_at", {
-		withTimezone: true,
-		mode: "date"
-	}).notNull()
+  id: text("id").primaryKey(),
+  userId: integer("user_id")
+    .notNull()
+    .references(() => usersTable.id),
+  expiresAt: timestamp("expires_at", {
+    withTimezone: true,
+    mode: "date",
+  }).notNull(),
 });
 
 export type Session = InferSelectModel<typeof sessionsTable>;
 
 export const answersTable = pgTable("answers", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  userId: integer("user_id").notNull().references(() => usersTable.id),
-  questionId: integer("question_id").notNull().references(() => questionsTable.id),
+  userId: integer("user_id")
+    .notNull()
+    .references(() => usersTable.id),
+  questionId: integer("question_id")
+    .notNull()
+    .references(() => questionsTable.id),
   answer: text().notNull(),
-  timeCreated: timestamp("time_created", { withTimezone: true }).notNull().defaultNow(),
+  timeCreated: timestamp("time_created", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
   correct: boolean().notNull().default(false),
 });
 

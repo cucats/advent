@@ -1,4 +1,3 @@
-
 import { trpc } from "@/trpc/server";
 import { Raven } from "./Raven";
 import { TRPCError } from "@trpc/server";
@@ -23,4 +22,4 @@ export const protectQuestion = async (questionNo: string) => {
     }
     return "Something went wrong";
   }
-}
+};

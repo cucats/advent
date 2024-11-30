@@ -5,5 +5,7 @@ export default async function Page({
 }) {
   const { userId } = await params;
 
-  return <div>Profile for {userId}</div>;
+  console.log(userId);
+
+  return <div>Profile released soon...</div>;
 }

@@ -12,7 +12,11 @@ const DateTimeContext = createContext<{
   setCurrentDateTime: () => {},
 });
 
-export const DateTimeProvider = ({ children }: { children: React.ReactNode }) => {
+export const DateTimeProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [currentDateTime, setCurrentDateTime] = useState(getCurrentDate());
 
   useEffect(() => {
@@ -22,7 +26,11 @@ export const DateTimeProvider = ({ children }: { children: React.ReactNode }) =>
     return () => clearInterval(interval);
   }, []);
 
-  return <DateTimeContext.Provider value={{ currentDateTime, setCurrentDateTime }}>{children}</DateTimeContext.Provider>;
+  return (
+    <DateTimeContext.Provider value={{ currentDateTime, setCurrentDateTime }}>
+      {children}
+    </DateTimeContext.Provider>
+  );
 };
 
 export const useDateTime = () => {

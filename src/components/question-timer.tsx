@@ -2,7 +2,11 @@
 
 import { useDateTime } from "@/components/datetime-context";
 
-export const QuestionTimer = ({ releaseDateTime }: { releaseDateTime: Date }) => {
+export const QuestionTimer = ({
+  releaseDateTime,
+}: {
+  releaseDateTime: Date;
+}) => {
   const { currentDateTime } = useDateTime();
 
   const timeRemaining = releaseDateTime.getTime() - currentDateTime.getTime();
@@ -16,13 +20,22 @@ export const QuestionTimer = ({ releaseDateTime }: { releaseDateTime: Date }) =>
   }
 
   if (hours > 48) {
-    return <time dateTime={releaseDateTime.toISOString()} className="text-lg text-zinc-500">--:--:--</time>;
+    return (
+      <time
+        dateTime={releaseDateTime.toISOString()}
+        className="text-lg text-zinc-500"
+      >
+        --:--:--
+      </time>
+    );
   }
 
   return (
-    <time dateTime={releaseDateTime.toISOString()} className="text-lg text-zinc-500">
-      {hours.toString().padStart(2, "0")}:
-      {minutes.toString().padStart(2, "0")}:
+    <time
+      dateTime={releaseDateTime.toISOString()}
+      className="text-lg text-zinc-500"
+    >
+      {hours.toString().padStart(2, "0")}:{minutes.toString().padStart(2, "0")}:
       {seconds.toString().padStart(2, "0")}
     </time>
   );
