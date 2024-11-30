@@ -1,7 +1,11 @@
 use core::str;
 use std::process::Command;
 
-use axum::{http::StatusCode, routing::post, Json, Router};
+use axum::{
+    http::StatusCode,
+    routing::{get, post},
+    Json, Router,
+};
 use serde::{Deserialize, Serialize};
 
 mod puzzle;
@@ -13,25 +17,11 @@ struct Submission {
 
 #[derive(Serialize)]
 struct GradeResponse {
-    score: usize,
-    total: usize,
+    score: i32,
     msg: Option<String>,
+    stdout: String,
+    stderr: String,
 }
-
-struct TestCase<'a>(&'a str, &'a str);
-
-const TEST_CASES: &[TestCase] = &[
-    TestCase("1", "1"),
-    TestCase("2", "2"),
-    TestCase("3", "Fizz"),
-    TestCase("4", "4"),
-    TestCase("5", "Buzz"),
-    TestCase("15", "FizzBuzz"),
-    TestCase("16", "16"),
-    TestCase("30", "FizzBuzz"),
-    TestCase("33", "Fizz"),
-    TestCase("50", "Buzz"),
-];
 
 async fn handle_submit(
     Json(payload): Json<Submission>,
@@ -62,18 +52,20 @@ async fn handle_submit(
         Ok(output) => output,
     };
 
+    let stdout = String::from_utf8(output.stdout).expect("UTF-8");
+    let stderr = String::from_utf8(output.stderr).expect("UTF-8");
+
     if let Err(_) = Command::new("isolate").arg("--cleanup").output() {
         return (StatusCode::INTERNAL_SERVER_ERROR, Json(None));
     }
 
-    let score = 1; // TODO
-
     (
         StatusCode::OK,
         Json(Some(GradeResponse {
-            score,
-            total: TEST_CASES.len(),
-            msg: None,
+            score: 1, // TODO
+            msg: Some("Ok lol".to_string()),
+            stdout,
+            stderr,
         })),
     )
 }
@@ -82,19 +74,21 @@ fn generate_test_runner_code() -> String {
     let mut test_runner = String::new();
     test_runner.push_str(&format!("import sys\n"));
     test_runner.push_str(&format!("sys.path.append('/tmp')\n"));
-    test_runner.push_str(&format!("from user import fizzbuzz\n",));
-    test_runner.push_str("\n");
-    for TestCase(input, _) in TEST_CASES {
-        test_runner.push_str(&format!(
-            "try:\n    print(fizzbuzz({input}))\nexcept:\n    print('Error')\n",
-        ));
-    }
+    test_runner.push_str(&format!("from user import fizzbuzz\n"));
+    test_runner.push_str(&format!("print('testing user code')\n"));
+    test_runner.push_str(&format!("print(fizzbuzz(3))\n"));
     test_runner
+}
+
+async fn root() -> &'static str {
+    return "Hello";
 }
 
 #[tokio::main]
 async fn main() {
-    let app = Router::new().route("/api/submit", post(handle_submit));
+    let app = Router::new()
+        .route("/", get(root))
+        .route("/api/submit", post(handle_submit));
 
     let listener = tokio::net::TcpListener::bind("127.0.0.1:7878")
         .await
