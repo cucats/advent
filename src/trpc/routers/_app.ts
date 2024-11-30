@@ -5,6 +5,7 @@ import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { getCurrentDate, questionNoToDate } from "@/lib/utils";
 import { Question } from "@/lib/types";
+import { TRPCError } from "@trpc/server";
 
 export const appRouter = createTRPCRouter({
   getQuestions: baseProcedure.query(async () => {
@@ -23,12 +24,12 @@ export const appRouter = createTRPCRouter({
     const date = new Date(`${rawDate}T11:00:00`);
     const currentDate = getCurrentDate();
     if (new Date(date) > currentDate) {
-      throw new Error("Question not released yet!");
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Question not released yet!" });
     }
 
     const question = await db.query.questionsTable.findFirst({ where: eq(questionsTable.date, rawDate) });
     if (!question) {
-      throw new Error("Question not found");
+      throw new TRPCError({ code: "NOT_FOUND", message: "Question not found" });
     }
 
     return {
