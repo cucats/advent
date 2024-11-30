@@ -1,5 +1,5 @@
-import { baseProcedure, createTRPCRouter } from "../init";
-import { questionsTable, questionTypeSchema, selectQuestionSchema } from "@/db/schema";
+import { baseProcedure, createTRPCRouter, protectedProcedure } from "../init";
+import { answersTable, questionsTable, questionTypeSchema, selectQuestionSchema } from "@/db/schema";
 import { db } from "@/db";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
@@ -40,6 +40,22 @@ export const appRouter = createTRPCRouter({
       releaseDateTime: new Date(`${rawDate}T11:00:00`),
       question: question.question,
     };
+  }),
+  submitAnswer: protectedProcedure.input(z.object({
+    questionNo: z.string(),
+    answer: z.string(),
+  })).mutation(async ({ input, ctx }) => {
+    const question = await db.query.questionsTable.findFirst({ where: eq(questionsTable.date, input.questionNo) });
+    if (!question) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Question not found" });
+    }
+
+    await db.insert(answersTable).values({
+      userId: ctx.user.id,
+      questionId: question.id,
+      answer: input.answer,
+      correct: question.answer === input.answer,
+    });
   }),
 });
 
