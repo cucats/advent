@@ -1,4 +1,4 @@
-import { date, integer, pgTable, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { date, integer, boolean, pgTable, text, timestamp, varchar } from "drizzle-orm/pg-core";
 import type { InferSelectModel } from "drizzle-orm";
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 import { z } from "zod";
@@ -42,3 +42,15 @@ export const sessionsTable = pgTable("session", {
 });
 
 export type Session = InferSelectModel<typeof sessionsTable>;
+
+export const answersTable = pgTable("answers", {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  userId: integer("user_id").notNull().references(() => usersTable.id),
+  questionId: integer("question_id").notNull().references(() => questionsTable.id),
+  answer: text().notNull(),
+  timeCreated: timestamp("time_created", { withTimezone: true }).notNull().defaultNow(),
+  correct: boolean().notNull().default(false),
+});
+
+export const selectAnswerSchema = createSelectSchema(answersTable);
+export const insertAnswerSchema = createInsertSchema(answersTable);
