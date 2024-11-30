@@ -1,9 +1,10 @@
 import { baseProcedure, createTRPCRouter } from "../init";
-import { questionsTable, selectQuestionSchema } from "@/db/schema";
+import { questionsTable, questionTypeSchema, selectQuestionSchema } from "@/db/schema";
 import { db } from "@/db";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
-import { questionNoToDate } from "@/lib/utils";
+import { getCurrentDate, questionNoToDate } from "@/lib/utils";
+import { Question } from "@/lib/types";
 
 export const appRouter = createTRPCRouter({
   getQuestions: baseProcedure.query(async () => {
@@ -13,16 +14,14 @@ export const appRouter = createTRPCRouter({
       return {
         id: parsedQuestion.id,
         date: parsedQuestion.date,
-        title: parsedQuestion.title,
-        type: parsedQuestion.type,
         releaseDateTime: new Date(`${parsedQuestion.date}T11:00:00`),
       }
     })
   }),
-  getQuestion: baseProcedure.input(z.object({ questionNo: z.string() })).query(async ({ input }) => {
+  getQuestion: baseProcedure.input(z.object({ questionNo: z.string() })).query(async ({ input }): Promise<Question> => {
     const rawDate = questionNoToDate(input.questionNo);
     const date = new Date(`${rawDate}T11:00:00`);
-    const currentDate = new Date();
+    const currentDate = getCurrentDate();
     if (new Date(date) > currentDate) {
       throw new Error("Question not released yet!");
     }
@@ -36,8 +35,9 @@ export const appRouter = createTRPCRouter({
       id: question.id,
       date: question.date,
       title: question.title,
-      type: question.type,
+      type: questionTypeSchema.parse(question.type),
       releaseDateTime: new Date(`${rawDate}T11:00:00`),
+      question: question.question,
     };
   }),
 });

@@ -1,5 +1,6 @@
 "use client";
 
+import { getCurrentDate } from "@/lib/utils";
 import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 
@@ -12,11 +13,11 @@ const DateTimeContext = createContext<{
 });
 
 export const DateTimeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [currentDateTime, setCurrentDateTime] = useState(getCurrentDate());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentDateTime(new Date());
+      setCurrentDateTime(getCurrentDate());
     }, 1000);
     return () => clearInterval(interval);
   }, []);

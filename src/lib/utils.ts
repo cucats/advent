@@ -24,3 +24,8 @@ export const dateToQuestionNo = (date: string): string => {
 export const questionNoToDate = (questionNo: string): string => {
   return `2024-12-${questionNo.padStart(2, '0')}`;
 };
+
+export const getCurrentDate = () => {
+  return new Date();
+  // return new Date("2024-12-04T12:00:00");
+}
