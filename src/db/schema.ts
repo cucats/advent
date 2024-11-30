@@ -22,6 +22,7 @@ export const questionsTable = pgTable("questions", {
   date: date().notNull(),
   title: text().notNull(),
   type: text().notNull(),
+  question: text().notNull(),
   answer: text()
 });
 

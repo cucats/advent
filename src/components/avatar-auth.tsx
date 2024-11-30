@@ -1,5 +1,5 @@
 
-import { getCurrentSession } from "@/lib/session";
+import { deleteSessionTokenCookie, getCurrentSession, invalidateSession } from "@/lib/session";
 
 export const AvatarAuth = async () => {
 	const { user } = await getCurrentSession();
@@ -9,8 +9,26 @@ export const AvatarAuth = async () => {
 			[Sign in]
 		</a>
 	) : (
-		<a href="/logout" className="text-foreground hover:text-highlight">
+		<button onClick={logout} className="text-foreground hover:text-highlight">
 			[Sign out {user.crsid}]
-		</a>
+		</button>
 	);
 };
+
+async function logout(): Promise<ActionResult> {
+	"use server";
+	const { session } = await getCurrentSession();
+	if (!session) {
+		return {
+			error: "Unauthorized"
+		};
+	}
+
+	await invalidateSession(session.id);
+	await deleteSessionTokenCookie();
+	return { error: null };
+};
+
+interface ActionResult {
+	error: string | null;
+}

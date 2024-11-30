@@ -6,7 +6,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="w-screen min-h-screen flex flex-col bg-background text-zinc-300">
+    <div className="w-screen min-h-screen flex flex-col items-center bg-background text-zinc-300">
       <Header />
       {children}
     </div>
