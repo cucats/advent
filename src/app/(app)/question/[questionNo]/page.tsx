@@ -1,12 +1,19 @@
-import { Question } from "@/components/questions/question";
-import { trpc } from "@/trpc/server";
+"use client";
 
-export default async function Page(props: {
-  params: Promise<{ questionNo: string }>;
-}) {
-  const params = await props.params;
-  void trpc.getQuestion.prefetch({ questionNo: params.questionNo });
-  void trpc.getCurrentSession.prefetch();
+import { trpc } from "@/trpc/client";
+import { useParams } from "next/navigation";
 
-  return <Question questionNo={params.questionNo} />;
+// this page should always throw an error, either the question doesn't exist or
+// the question's ui hasn't been implemented yet
+export default function Page() {
+  const params = useParams();
+
+  if (typeof params.questionNo !== "string") {
+    throw new Error("Question not found.");
+  }
+
+  // try and trigger an errpr
+  trpc.getQuestion.useSuspenseQuery({ questionNo: params.questionNo });
+
+  throw new Error("Question not implemented.");
 }

@@ -20,9 +20,7 @@ export const selectUserSchema = createSelectSchema(usersTable);
 export const questionsTable = pgTable("questions", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   date: date().notNull(),
-  title: text().notNull(),
   type: text().notNull(),
-  question: text().notNull(),
   answer: text()
 });
 

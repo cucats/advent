@@ -35,10 +35,8 @@ export const appRouter = createTRPCRouter({
     return {
       id: question.id,
       date: question.date,
-      title: question.title,
       type: questionTypeSchema.parse(question.type),
       releaseDateTime: new Date(`${rawDate}T11:00:00`),
-      question: question.question,
     };
   }),
   submitAnswer: protectedProcedure.input(z.object({
