@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
 
   const assetPath = path.join("src/assets", questionNo, assetName);
   const resolvedPath = path.resolve(assetPath);
-  const basePath = path.resolve("src/assets");
+  const basePath = path.resolve(path.join("src/assets", questionNo));
 
   if (!resolvedPath.startsWith(basePath)) {
     return NextResponse.json(
