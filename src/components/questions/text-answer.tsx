@@ -3,7 +3,7 @@
 import { trpc } from "@/trpc/client";
 import { useRef, useState } from "react";
 
-export const TextAnswer = ({ questionNo }: { questionNo: string }) => {
+export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: string, removeWhitespace?: boolean }) => {
   const [session, { isLoading }] = trpc.getCurrentSession.useSuspenseQuery();
   const submitAnswerMutation = trpc.submitAnswer.useMutation();
   const [error, setError] = useState<string | null>(null);
@@ -13,7 +13,7 @@ export const TextAnswer = ({ questionNo }: { questionNo: string }) => {
 
   const submitAnswer = (answer: string) => {
     submitAnswerMutation.mutate(
-      { questionNo, answer },
+      { questionNo, answer: removeWhitespace ? answer.replace(/\s/g, "") : answer },
       {
         onSuccess: ({ correct }) => {
           formRef.current?.reset();

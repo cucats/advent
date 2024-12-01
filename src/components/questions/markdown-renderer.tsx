@@ -11,6 +11,7 @@ export const MarkdownRenderer = ({ children }: { children: string }) => {
     <Markdown
       remarkPlugins={[remarkMath]}
       rehypePlugins={[rehypeKatex]}
+      className="prose prose-sm text-zinc-300 prose-strong:text-foreground prose-code:text-foreground"
       components={{
         code(props) {
           const { children, className, ...rest } = props;
@@ -34,7 +35,7 @@ export const MarkdownRenderer = ({ children }: { children: string }) => {
         },
       }}
     >
-      {children.replace(/\\n/gi, "\n")}
+      {children.replace(/\\n/gi, "\n").replace(/\\`/gi, "\`")}
     </Markdown>
   );
 };
