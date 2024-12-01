@@ -170,7 +170,7 @@ export const appRouter = createTRPCRouter({
       .from(usersTable)
       .leftJoin(answersTable, eq(answersTable.userId, usersTable.id))
       .groupBy(usersTable.id)
-      .orderBy(desc(sql<number>`coalesce(sum(${answersTable.score}), 0)`));
+      .orderBy(desc(sql<number>`coalesce(sum(${answersTable.score}), 0)`), usersTable.id);
     return leaderboard;
   }),
   getUserAnswers: protectedProcedure.query(async ({ ctx }) => {
