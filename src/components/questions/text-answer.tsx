@@ -1,19 +1,23 @@
 "use client";
 
+import { SessionValidationResult } from "@/lib/session";
 import { trpc } from "@/trpc/client";
 import { useRef, useState } from "react";
 
 export const TextAnswer = ({
   questionNo,
   removeWhitespace,
+  session
 }: {
   questionNo: string;
   removeWhitespace?: boolean;
+  session: SessionValidationResult;
 }) => {
-  const [session, { isLoading }] = trpc.getCurrentSession.useSuspenseQuery();
   const submitAnswerMutation = trpc.submitAnswer.useMutation();
-  const [userQuestionAnswered, { refetch }] =
-    trpc.getUserQuestionAnswered.useSuspenseQuery({ questionNo });
+  const {
+    data: userQuestionAnswered,
+    refetch,
+  } = trpc.getUserQuestionAnswered.useQuery({ questionNo });
   const [error, setError] = useState<string | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -78,10 +82,6 @@ export const TextAnswer = ({
         [submit]
       </button>
     </form>
-  ) : isLoading ? (
-    <div>
-      <h3>Loading...</h3>
-    </div>
   ) : (
     <div>
       <h3>Please log in to submit an answer</h3>

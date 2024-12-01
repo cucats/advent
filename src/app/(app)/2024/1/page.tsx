@@ -1,6 +1,7 @@
 import { MarkdownRenderer } from "@/components/questions/markdown-renderer";
 import { TextAnswer } from "@/components/questions/text-answer";
 import { protectQuestion } from "@/lib/auth";
+import { getCurrentSession } from "@/lib/session";
 
 const questionOneMarkdown = String.raw`
 --- Day 1: Debugging Christmas ---
@@ -38,6 +39,7 @@ The answer should be given in the format \`(x, y)\`.
 
 export default async function Page() {
   const error = await protectQuestion("1");
+  const session = await getCurrentSession();
   if (error) return <div>{error}</div>;
 
   return (
@@ -51,7 +53,7 @@ export default async function Page() {
         Download Input file
       </a>
       <div className="flex flex-col mt-16">
-        <TextAnswer removeWhitespace questionNo="1" />
+        <TextAnswer removeWhitespace questionNo="1" session={session} />
       </div>
     </div>
   );
