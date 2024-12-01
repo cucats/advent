@@ -165,6 +165,7 @@ export const appRouter = createTRPCRouter({
         nickname: usersTable.nickname,
         crsid: usersTable.crsid,
         score: sql<number>`coalesce(sum(${answersTable.score}), 0)`,
+        stars: sql<number>`count(${answersTable.id})`,
       })
       .from(usersTable)
       .leftJoin(answersTable, eq(answersTable.userId, usersTable.id))
