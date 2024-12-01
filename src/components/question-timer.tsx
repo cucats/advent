@@ -16,14 +16,14 @@ export const QuestionTimer = ({
   const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
   if (timeRemaining < 0) {
-    return <p className="text-lg text-zinc-500">released!</p>;
+    return <p className="text-lg text-zinc-400">released!</p>;
   }
 
   if (hours > 48) {
     return (
       <time
         dateTime={releaseDateTime.toISOString()}
-        className="text-lg text-zinc-500"
+        className="text-lg text-zinc-400"
       >
         --:--:--
       </time>
@@ -33,7 +33,7 @@ export const QuestionTimer = ({
   return (
     <time
       dateTime={releaseDateTime.toISOString()}
-      className="text-lg text-zinc-500"
+      className="text-lg text-zinc-400"
     >
       {hours.toString().padStart(2, "0")}:{minutes.toString().padStart(2, "0")}:
       {seconds.toString().padStart(2, "0")}

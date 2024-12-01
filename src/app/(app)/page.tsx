@@ -21,10 +21,10 @@ export default async function Page() {
                 href={`/2024/${dateToQuestionNo(question.date)}`}
                 className="flex items-center space-x-4"
               >
-                <h2 className="text-lg text-zinc-300 hover:text-zinc-100">
+                <h2 className="text-lg text-zinc-200 hover:text-zinc-300">
                   {dateToQuestionNo(question.date).padStart(2, "0")}
                 </h2>{" "}
-                <p className="text-lg text-zinc-500 hover:text-zinc-400">
+                <p className="text-lg text-zinc-400 hover:text-zinc-300">
                   {question.date}
                 </p>
               </Link>

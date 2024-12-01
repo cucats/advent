@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="flex flex-col w-full max-w-xl mt-16 p-4">
+    <div className="flex flex-col w-full max-w-xl mt-4 p-4">
       <div>
         <p className="mb-4">
           Problems will be released every day at 12:00 BST. For each day you answer,
@@ -17,7 +17,7 @@ export default function Page() {
         >
           [CUCaTS]
         </Link>
-        , based on{" "}
+        , inspired by{" "}
         <Link
           href="https://adventofcode.com"
           className="text-foreground hover:text-highlight"
