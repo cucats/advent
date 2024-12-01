@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: string, removeWhitespace?: boolean }) => {
   const [session, { isLoading }] = trpc.getCurrentSession.useSuspenseQuery();
   const submitAnswerMutation = trpc.submitAnswer.useMutation();
-  const { data: userQuestionAnswered, refetch } = trpc.getUserQuestionAnswered.useQuery({ questionNo });
+  const [userQuestionAnswered, { refetch }] = trpc.getUserQuestionAnswered.useSuspenseQuery({ questionNo });
   const [error, setError] = useState<string | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);

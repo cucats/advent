@@ -76,10 +76,21 @@ export const appRouter = createTRPCRouter({
         });
       }
 
+      const existingAnswer = await db.query.answersTable.findFirst({
+        where: and(
+          eq(answersTable.userId, ctx.user.id),
+          eq(answersTable.questionId, question.id)
+        ),
+      });
+
+      if (existingAnswer) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Question already solved",
+        });
+      }
+
       const correct = question.answer === input.answer;
-      console.log(correct);
-      console.log(question.answer);
-      console.log(input.answer);
 
       if (correct) {
         const answers = await db.query.answersTable.findMany({
@@ -93,7 +104,6 @@ export const appRouter = createTRPCRouter({
           answers.length + 1
         );
 
-        // TODO: calculate score
         await db.insert(answersTable).values({
           userId: ctx.user.id,
           questionId: question.id,
@@ -145,7 +155,7 @@ export const appRouter = createTRPCRouter({
             score: answer.score,
             timeCreated: answer.timeCreated,
           }
-        : undefined;
+        : null;
     }),
   getLeaderboard: baseProcedure.query(async () => {
     // get all users, joined with their answers, with the scores summed up. order by score descending
@@ -161,6 +171,12 @@ export const appRouter = createTRPCRouter({
       .groupBy(usersTable.id)
       .orderBy(desc(sql<number>`coalesce(sum(${answersTable.score}), 0)`));
     return leaderboard;
+  }),
+  getUserAnswers: protectedProcedure.query(async ({ ctx }) => {
+    const answers = await db.query.answersTable.findMany({
+      where: eq(answersTable.userId, ctx.user.id),
+    });
+    return answers;
   }),
 });
 
