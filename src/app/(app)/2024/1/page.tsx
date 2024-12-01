@@ -31,9 +31,12 @@ export default async function Page() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="flex flex-col gap-16 w-full max-w-2xl items-center p-4 mb-32 mt-8">
+    <div className="flex flex-col gap-8 w-full max-w-2xl items-center p-4 mb-32 mt-8">
       <MarkdownRenderer>{questionOneMarkdown}</MarkdownRenderer>
-      <div className="flex flex-col gap-4">
+      <a download href="/qs/1/q1.input.txt" className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900">
+        Download Input file
+      </a>
+      <div className="flex flex-col mt-16">
         <TextAnswer removeWhitespace questionNo="1" />
       </div>
     </div>

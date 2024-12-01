@@ -6,8 +6,8 @@ import { useRef, useState } from "react";
 export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: string, removeWhitespace?: boolean }) => {
   const [session, { isLoading }] = trpc.getCurrentSession.useSuspenseQuery();
   const submitAnswerMutation = trpc.submitAnswer.useMutation();
+  const { data: userQuestionAnswered, refetch } = trpc.getUserQuestionAnswered.useQuery({ questionNo });
   const [error, setError] = useState<string | null>(null);
-  const [solved, setSolved] = useState<boolean | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -18,7 +18,7 @@ export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: strin
         onSuccess: ({ correct }) => {
           formRef.current?.reset();
           if (correct) {
-            setSolved(true);
+            refetch();
           } else {
             setError("Incorrect answer, try again!");
           }
@@ -30,8 +30,8 @@ export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: strin
     );
   };
 
-  if (solved) {
-    return <div>You&apos;ve solved this problem!</div>;
+  if (userQuestionAnswered) {
+    return <div className="text-foreground">You&apos;ve solved this problem, and earned {userQuestionAnswered.score} points!</div>;
   }
 
   return session.user ? (
@@ -47,7 +47,7 @@ export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: strin
         <input
           type="text"
           name="answer"
-          className="border-[1px] w-48 border-zinc-300 bg-black text-highlight px-2 py-1 text-sm"
+          className="border-[1px] w-48 border-zinc-300 bg-black text-highlight px-2 py-1"
         />
         {error && (
           <div className="text-red-500 absolute text-sm top-10 w-96">

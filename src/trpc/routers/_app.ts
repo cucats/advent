@@ -7,11 +7,12 @@ import {
   usersTable,
 } from "@/db/schema";
 import { db } from "@/db";
-import { eq } from "drizzle-orm";
+import { and, asc, desc, eq, sql } from "drizzle-orm";
 import { z } from "zod";
 import { getCurrentDate, questionNoToDate } from "@/lib/utils";
 import { Question } from "@/lib/types";
 import { TRPCError } from "@trpc/server";
+import { calculateScore } from "@/lib/scoring";
 
 export const appRouter = createTRPCRouter({
   getQuestions: baseProcedure.query(async () => {
@@ -76,14 +77,28 @@ export const appRouter = createTRPCRouter({
       }
 
       const correct = question.answer === input.answer;
+      console.log(correct);
+      console.log(question.answer);
+      console.log(input.answer);
 
       if (correct) {
+        const answers = await db.query.answersTable.findMany({
+          where: eq(answersTable.questionId, question.id),
+          orderBy: [asc(answersTable.timeCreated)],
+          limit: 10,
+        });
+
+        const score = calculateScore(
+          parseInt(input.questionNo),
+          answers.length + 1
+        );
+
+        // TODO: calculate score
         await db.insert(answersTable).values({
           userId: ctx.user.id,
           questionId: question.id,
+          score,
         });
-
-        // TODO: calculate score
       }
 
       return {
@@ -104,6 +119,49 @@ export const appRouter = createTRPCRouter({
         .set({ nickname: input.nickname })
         .where(eq(usersTable.id, ctx.user.id));
     }),
+  getUserQuestionAnswered: protectedProcedure
+    .input(z.object({ questionNo: z.string() }))
+    .query(async ({ input, ctx }) => {
+      const rawDate = questionNoToDate(input.questionNo);
+      const question = await db.query.questionsTable.findFirst({
+        where: eq(questionsTable.date, rawDate),
+      });
+      if (!question) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Question not found",
+        });
+      }
+
+      const answer = await db.query.answersTable.findFirst({
+        where: and(
+          eq(answersTable.userId, ctx.user.id),
+          eq(answersTable.questionId, question.id)
+        ),
+      });
+
+      return answer
+        ? {
+            score: answer.score,
+            timeCreated: answer.timeCreated,
+          }
+        : undefined;
+    }),
+  getLeaderboard: baseProcedure.query(async () => {
+    // get all users, joined with their answers, with the scores summed up. order by score descending
+    const leaderboard = await db
+      .select({
+        userId: usersTable.id,
+        nickname: usersTable.nickname,
+        crsid: usersTable.crsid,
+        score: sql<number>`coalesce(sum(${answersTable.score}), 0)`,
+      })
+      .from(usersTable)
+      .leftJoin(answersTable, eq(answersTable.userId, usersTable.id))
+      .groupBy(usersTable.id)
+      .orderBy(desc(sql<number>`coalesce(sum(${answersTable.score}), 0)`));
+    return leaderboard;
+  }),
 });
 
 export type AppRouter = typeof appRouter;

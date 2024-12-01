@@ -1,5 +1,5 @@
 
-export const getScore = (
+export const calculateScore = (
   day: number,
   nthAnswer: number
 ) => {

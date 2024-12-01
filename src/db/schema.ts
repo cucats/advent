@@ -57,6 +57,7 @@ export const answersTable = pgTable("answers", {
   questionId: integer("question_id")
     .notNull()
     .references(() => questionsTable.id),
+  score: integer("score").notNull(),
   timeCreated: timestamp("time_created", { withTimezone: true })
     .notNull()
     .defaultNow(),
