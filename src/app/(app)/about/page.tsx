@@ -13,7 +13,11 @@ export default function Page() {
         </Link>
         !
       </div>
-      <p>Please don&apos;t try and break the infra :-)</p>
+      <p>Please don&apos;t try and break anything :-)</p>
+      <p className="mt-4">
+        If you have any questions/run into any issues, please contact{" "}
+        <span className="font-bold text-foreground">olifog</span> on Discord.
+      </p>
     </div>
   );
 }
