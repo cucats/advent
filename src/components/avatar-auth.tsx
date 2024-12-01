@@ -27,7 +27,7 @@ export const AvatarAuth = ({
       onClick={() => {
         logout();
       }}
-      className="text-foreground hover:text-highlight"
+      className="text-lg text-foreground hover:text-highlight"
     >
       [Sign out {user.nickname ?? user.crsid}]
     </button>

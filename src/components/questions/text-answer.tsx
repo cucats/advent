@@ -7,7 +7,7 @@ export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: strin
   const [session, { isLoading }] = trpc.getCurrentSession.useSuspenseQuery();
   const submitAnswerMutation = trpc.submitAnswer.useMutation();
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<boolean | null>(null);
+  const [solved, setSolved] = useState<boolean | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -17,9 +17,11 @@ export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: strin
       {
         onSuccess: ({ correct }) => {
           formRef.current?.reset();
-          setError(null);
-          setSuccess(correct);
-          console.log(success);
+          if (correct) {
+            setSolved(true);
+          } else {
+            setError("Incorrect answer, try again!");
+          }
         },
         onError: (error) => {
           setError(error.message);
@@ -27,6 +29,10 @@ export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: strin
       }
     );
   };
+
+  if (solved) {
+    return <div>You&apos;ve solved this problem!</div>;
+  }
 
   return session.user ? (
     <form

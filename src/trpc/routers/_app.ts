@@ -77,10 +77,14 @@ export const appRouter = createTRPCRouter({
 
       const correct = question.answer === input.answer;
 
-      await db.insert(answersTable).values({
-        userId: ctx.user.id,
-        questionId: question.id,
-      });
+      if (correct) {
+        await db.insert(answersTable).values({
+          userId: ctx.user.id,
+          questionId: question.id,
+        });
+
+        // TODO: calculate score
+      }
 
       return {
         correct,

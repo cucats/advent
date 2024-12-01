@@ -14,7 +14,7 @@ export default async function Page() {
   return (
     <DateTimeProvider>
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-xl flex flex-col gap-1 p-4">
+        <div className="w-full max-w-lg flex flex-col gap-1 p-4 mb-32">
           {sortedQuestions.map((question) => (
             <div key={question.id} className="w-full flex justify-between">
               <Link
