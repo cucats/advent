@@ -1,4 +1,3 @@
-
 import { Onboarding } from "@/components/onboarding";
 import { getCurrentSession } from "@/lib/session";
 import { redirect } from "next/navigation";

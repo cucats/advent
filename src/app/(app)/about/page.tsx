@@ -5,11 +5,10 @@ export default function Page() {
     <div className="flex flex-col w-full max-w-xl mt-4 p-4">
       <div>
         <p className="mb-4">
-          Problems will be released every day at 12:00 UTC. For each day you answer,
-          you get a star, and you earn score for each day based on how many people solved
-          it before you did.
+          Problems will be released every day at 12:00 UTC. For each day you
+          answer, you get a star, and you earn score for each day based on how
+          many people solved it before you did.
         </p>
-
         Brought to you by{" "}
         <Link
           href="https://www.cucats.org"

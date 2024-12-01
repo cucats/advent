@@ -14,7 +14,10 @@ export async function GET(request: NextRequest) {
   const assetName = searchParams.get("assetName");
 
   if (!questionNo || !assetName) {
-    return NextResponse.json({ error: "Missing questionNo or assetName" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Missing questionNo or assetName" },
+      { status: 400 }
+    );
   }
 
   const rawDate = questionNoToDate(questionNo);
@@ -22,7 +25,10 @@ export async function GET(request: NextRequest) {
   const currentDate = getCurrentDate();
 
   if (date > currentDate) {
-    return NextResponse.json({ error: "Question not released yet!" }, { status: 403 });
+    return NextResponse.json(
+      { error: "Question not released yet!" },
+      { status: 403 }
+    );
   }
 
   const asset = await fs.readFile(`src/assets/${questionNo}/${assetName}`);

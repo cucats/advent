@@ -3,17 +3,27 @@
 import { trpc } from "@/trpc/client";
 import { useRef, useState } from "react";
 
-export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: string, removeWhitespace?: boolean }) => {
+export const TextAnswer = ({
+  questionNo,
+  removeWhitespace,
+}: {
+  questionNo: string;
+  removeWhitespace?: boolean;
+}) => {
   const [session, { isLoading }] = trpc.getCurrentSession.useSuspenseQuery();
   const submitAnswerMutation = trpc.submitAnswer.useMutation();
-  const [userQuestionAnswered, { refetch }] = trpc.getUserQuestionAnswered.useSuspenseQuery({ questionNo });
+  const [userQuestionAnswered, { refetch }] =
+    trpc.getUserQuestionAnswered.useSuspenseQuery({ questionNo });
   const [error, setError] = useState<string | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);
 
   const submitAnswer = (answer: string) => {
     submitAnswerMutation.mutate(
-      { questionNo, answer: removeWhitespace ? answer.replace(/\s/g, "") : answer },
+      {
+        questionNo,
+        answer: removeWhitespace ? answer.replace(/\s/g, "") : answer,
+      },
       {
         onSuccess: ({ correct }) => {
           formRef.current?.reset();
@@ -31,7 +41,12 @@ export const TextAnswer = ({ questionNo, removeWhitespace }: { questionNo: strin
   };
 
   if (userQuestionAnswered) {
-    return <div className="text-foreground">You&apos;ve solved this problem, and earned {userQuestionAnswered.score} points!</div>;
+    return (
+      <div className="text-foreground">
+        You&apos;ve solved this problem, and earned {userQuestionAnswered.score}{" "}
+        points!
+      </div>
+    );
   }
 
   return session.user ? (

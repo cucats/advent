@@ -1,11 +1,8 @@
 "use client";
 
 import { logout } from "@/lib/logout";
-import {
-  SessionValidationResult,
-} from "@/lib/session";
+import { SessionValidationResult } from "@/lib/session";
 import { useState } from "react";
-
 
 export const AvatarAuth = ({
   user,
@@ -33,4 +30,3 @@ export const AvatarAuth = ({
     </button>
   );
 };
-
