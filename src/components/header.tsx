@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { AvatarAuth } from "./avatar-auth";
+import { getCurrentSession } from "@/lib/session";
 
 export const Header = async () => {
+  const { user } = await getCurrentSession();
   return (
     <div className="w-full flex justify-between items-center p-4">
       <div className="flex items-center gap-2 flex-wrap">
@@ -22,7 +24,7 @@ export const Header = async () => {
         </Link>
       </div>
 
-      <AvatarAuth />
+      <AvatarAuth user={user} />
     </div>
   );
 };
