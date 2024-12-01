@@ -3,6 +3,7 @@ import { NextRequest } from "next/server";
 import { questionNoToDate } from "@/lib/utils";
 import { getCurrentDate } from "@/lib/utils";
 import fs from "fs/promises";
+import path from "path";
 
 // we get the questionNo and the assetName from the request params
 // need to check if the questionNo date is before today's date (with the 12:00:00 added)
@@ -31,6 +32,17 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const asset = await fs.readFile(`src/assets/${questionNo}/${assetName}`);
+  const assetPath = path.join("src/assets", questionNo, assetName);
+  const resolvedPath = path.resolve(assetPath);
+  const basePath = path.resolve("src/assets");
+
+  if (!resolvedPath.startsWith(basePath)) {
+    return NextResponse.json(
+      { error: "Invalid asset path" },
+      { status: 400 }
+    );
+  }
+
+  const asset = await fs.readFile(resolvedPath);
   return new NextResponse(asset, { status: 200 });
 }
