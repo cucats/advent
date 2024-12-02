@@ -13,11 +13,11 @@ Whoosh! You've landed at the North Pole. There's an eerie buzz in the cold arcti
 
 "Messages are getting corrupted! Instead of delivering Santa's orders, we've been getting nonsense messages!"
 He grimaces. "One elf thought it was a virus and tried to install an anti-magic firewall. That just made things worse.
-Now we've got Snowball Packet Collisions, Reindeer Data Droppage, and a runaway JollyScript Compiler..."
+Now we've got Sn0wball Packet Collisions, Reindeer Data Droppage, and a runaway JollyScript Compiler..."
 
 You raise an eyebrow. "JollyScript?"
 
-"It's the only programming language optimized for festive efficiency!" Patch says unintelligently.
+"It's the only programming language optimised for festive efficiency!" Patch says unintelligently.
 
 "Anyway, back to the problem. One of Santa's critical messages — your next destination — came through completely garbled. It's been corrupted by one of those faulty network towers!
 We know how the towers mess things up, though. If you can decode the message, we can figure out where Santa needs you next."
