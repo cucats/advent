@@ -12,14 +12,14 @@ As the countdown to December 25th began, the unthinkable happened. Somewhere dee
 Instead of neatly organising the Naughty/Nice lists and gift orders, the algorithm started spitting out _nonsense_:
 
 * Little Timmy was scheduled to receive 41 left-foot socks.
-* Blameless Sophia was due to receive 10 tonnes of coal.
+* Goody Gerda was due to receive 10 tonnes of coal.
 * The GPS coordinates for Santa's sleigh were inexplicably set to the moon.
 
 The elves stared at the screens, horrified. "This... this can't be right!" said Tinker, the coding intern elf.
 No one dared to tell Santa. "Is this... a stack overflow?" "No," murmured Jingle, the head elf, trembling. "It's worse. **It's a heap of bugs.**"
 
 The elves quickly turn to the only people they knew who could save Christmas. "There's got to be some intelligent life in Cambridge!" remarked Tinker.
-"For each bug you find, we'll reward you with **one star**!", said Holly, head of Elven Resources. "If you get **all twenty-five stars** by 25th December,
+"For each problem you solve, we'll reward you with **one star**!", said Holly, head of Elven Resources. "If you get **all twenty-five stars** by 25th December,
 we'll reward you greatly! And so, they send you off in a sleigh to the North Pole.
 
 Unfortunately, the sleigh's GPS is reading bogus numbers! Before taking off, the sleigh needs to be calibrated.
