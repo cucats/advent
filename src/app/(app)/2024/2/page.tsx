@@ -6,7 +6,7 @@ import { getCurrentSession } from "@/lib/session";
 const questionTwoMarkdown = String.raw`
 --- Day 2: Sn0wdrift Network ---
 
-Whoosh! You've landed at the North Pole. There's an eerie buzz in the cold artic air, and your Watch™ wristwatch is beeping about a 418 Error... perhaps a hot chocolate could help instead.
+Whoosh! You've landed at the North Pole. There's an eerie buzz in the cold arctic air, and your Watch™ wristwatch is beeping about a 418 Error... perhaps a hot chocolate could help instead.
 
 "Thank goodness you're here!" Patch exclaims, nearly tripping over a coil of blinking fairy lights.
 "The polar communication network, Sn0wdrift, has been acting up ever since that Tinselware Update got pushed last week.
