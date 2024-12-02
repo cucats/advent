@@ -99,9 +99,8 @@ export const appRouter = createTRPCRouter({
           limit: 10,
         });
 
-        const score = calculateScore(
-          parseInt(input.questionNo),
-          answers.length + 1
+        const score = Math.ceil(
+          calculateScore(parseInt(input.questionNo), answers.length + 1)
         );
 
         await db.insert(answersTable).values({
@@ -170,7 +169,10 @@ export const appRouter = createTRPCRouter({
       .from(usersTable)
       .leftJoin(answersTable, eq(answersTable.userId, usersTable.id))
       .groupBy(usersTable.id)
-      .orderBy(desc(sql<number>`coalesce(sum(${answersTable.score}), 0)`), usersTable.id);
+      .orderBy(
+        desc(sql<number>`coalesce(sum(${answersTable.score}), 0)`),
+        usersTable.id
+      );
     return leaderboard;
   }),
   getUserAnswers: protectedProcedure.query(async ({ ctx }) => {
