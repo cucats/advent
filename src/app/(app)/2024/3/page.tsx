@@ -10,7 +10,7 @@ After a long day of sleigh-riding, elf-listening, panopto-watching, and elf-igno
 You jump off the sleigh, pull up your trusty quant socks, and hurry inside, with Patch close behind.
 
 You're greeted by a scene of absolute disarray. The place is littered with mince pies -- piles upon piles of them, as far as the eye can see.
-Wild-eyed white-coated elves scurry in every direction, with a pulsating ring of green and red light looming above it all: the Candy Cane Accelerator itself!
+Wild-eyed white-coated elves scurry in every direction, with a pulsing ring of green and red light looming above it all: the Candy Cane Accelerator itself!
 
 Patch, nearly tripping over a coil of blinking fairy lights, manages to grab a passing elf and drag them over to you.
 
