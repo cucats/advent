@@ -27,7 +27,7 @@ We know how the towers mess things up, though. If you can decode the message, we
 "The towers normally send packets of length 16 bytes, which we join together after. I looked at the Tinselware Update Patch-notes (unrelated, I swear!) and it seems like
 they tried to optimise their per-packet alphabet rotation subsystem..."
 
-Can you decode the corrupted message?
+Can you decode the corrupted message? The answer is the name of the place Santa needs you to go next.
 `;
 
 export default async function Page() {
