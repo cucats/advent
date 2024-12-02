@@ -43,7 +43,7 @@ export default async function Page() {
         href={`/api/asset?questionNo=2&assetName=q2.input.txt`}
         className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
       >
-        Download Input file
+        Download Corrupted Message
       </a>
       <div className="flex flex-col mt-16">
         <TextAnswer
