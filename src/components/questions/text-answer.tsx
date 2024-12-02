@@ -7,10 +7,12 @@ import { useRef, useState } from "react";
 export const TextAnswer = ({
   questionNo,
   removeWhitespace,
+  ignoreCase,
   session
 }: {
   questionNo: string;
   removeWhitespace?: boolean;
+  ignoreCase?: boolean;
   session: SessionValidationResult;
 }) => {
   const submitAnswerMutation = trpc.submitAnswer.useMutation();
@@ -23,10 +25,20 @@ export const TextAnswer = ({
   const formRef = useRef<HTMLFormElement>(null);
 
   const submitAnswer = (answer: string) => {
+    let cleanedAnswer = answer;
+
+    if (ignoreCase) {
+      cleanedAnswer = cleanedAnswer.toLowerCase();
+    }
+
+    if (removeWhitespace) {
+      cleanedAnswer = cleanedAnswer.replace(/\s/g, "");
+    }
+
     submitAnswerMutation.mutate(
       {
         questionNo,
-        answer: removeWhitespace ? answer.replace(/\s/g, "") : answer,
+        answer: cleanedAnswer,
       },
       {
         onSuccess: ({ correct }) => {
