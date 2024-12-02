@@ -26,6 +26,9 @@ export const questionNoToDate = (questionNo: string): string => {
 };
 
 export const getCurrentDate = () => {
+  if (process.env.NODE_ENV === "development") {
+    return new Date("2024-12-26T12:00:00");
+  }
+
   return new Date();
-  // return new Date("2024-12-04T12:00:00");
 };

@@ -36,7 +36,7 @@ export default async function Page() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="flex flex-col gap-8 w-full max-w-2xl items-center p-4 mb-32 mt-8">
+    <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
       <MarkdownRenderer>{questionTwoMarkdown}</MarkdownRenderer>
       <a
         download="q2.input.txt"
