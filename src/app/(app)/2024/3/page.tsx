@@ -6,19 +6,19 @@ import { getCurrentSession } from "@/lib/session";
 const questionThreeMarkdown = String.raw`
 --- Day 3: Mince Pie Avoidance System ---
 
-After a long day of sleigh-riding, elf-listening, panopto-watching, and elf-ignoring, you finally pull into the Candy Cane Accelerator's parking lot.
+After a long day of sleigh-riding, elf-listening, panopto-watching, and elf-ignoring, you finally pull into the Christmas Collider's parking lot.
 You jump off the sleigh, pull up your trusty quant socks, and hurry inside, with Patch close behind.
 
 You're greeted by a scene of absolute disarray. The place is littered with mince pies -- piles upon piles of them, as far as the eye can see.
-Wild-eyed white-coated elves scurry in every direction, with a pulsing ring of green and red light looming above it all: the Candy Cane Accelerator itself!
+Wild-eyed white-coated elves scurry in every direction, with a pulsing ring of green and red light looming above it all: the Candy Accelerator itself!
 
 Patch, nearly tripping over a coil of blinking fairy lights, manages to grab a passing elf and drag them over to you.
 
-"You've been sent? By Santa? I fear it's too late for that. The Candy Cane Accelerator is going critical!"
+"You've been sent? By Santa? I fear it's too late for that. The Candy Accelerator is going critical!"
 
 You nod, trying to look calm. "Don't worry. I did Intro to Graphics Tick 2. What's going on?"
 
-The elf gulps. "Well, the Candy Cane Accelerator is a device we use to assess this year's Christmas Spirit levels. If we spin a candy cane fast enough, we can
+The elf gulps. "Well, the Candy Accelerator is a device we use to assess this year's Christmas Spirit levels. If we spin a candy cane fast enough, we can
 calculate the world's merriness. It's all very scientific."
 
 *She leads you over to a set of stairs as she continues.*
@@ -57,10 +57,6 @@ The input file will be in a particular format. The first line contains an intege
 number of bounces required to shoot the candy cane from \`point 0\` to \`point n-1\` without hitting any mince pies, ending in the same lane that it started in.
 
 Your answer should be an integer, representing the sum of the computed minimum number of bounces for each test case.
-
-...
-
-*As you sit down to solve this, the Pie-o-matic shoots a mince pie right at you -- you duck, but you swear you saw the letters **DP** etched into the pie as it sailed past...*
 `;
 
 export default async function Page() {
