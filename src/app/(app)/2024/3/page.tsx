@@ -32,7 +32,7 @@ Along the circuit, there are several **mint boosters** that interact with the pa
 However, some of the mint boosters are faulty!
 A faulty booster cannot interact with peppermint particles at a particular frequency, so the particles must switch frequencies to bypass these faulty boosters.
 
-Fortunately, Santa's **quantum raygun** can instantly zap the particles and change their frequency at any booster!
+Fortunately, Santa's **quantum raygun** can zap the particles and change their frequency at any booster!
 However, the raygun is expensive to use, and Santa insists on minimising the number of times it's fired.
 Santa would probably bust our elf union if we used it too much...
 We need you calculate the **minimum amount of zaps** needed to avoid the faulty boosters **per loop**!"
@@ -45,18 +45,20 @@ The console beeps, and supplies you with an array of mint booster statuses.
   * \`2\` for high,
   * \`-1\` means the booster is **working properly** and accepts particles of any frequency.
 
-For example, the array \`[-1, 0, 2, -1, 2, 1, -1]\` represents the following circuit, where X denotes a faulty frequency of a booster:
+For example, the array \`[0, 0, 2, -1, 2, 1, -1]\` represents the following circuit, where X denotes a faulty frequency of a booster:
 
 \`\`\`
  Index: 01234560123456012 ...
-   Low: -X------X------X- ...
+   Low: XX-----XX-----XX- ...
 Medium: -----X------X---- ...
   High: --X-X----X-X----X ...
 \`\`\`
 
-In this case, the minimum amount of zaps needed per loop is **2**.
+In this case, the minimum amount of zaps needed per loop is **3**.
 One such way this could happen is if the particles started at medium frequency, got zapped to low frequency at booster 2/3/4, and zapped back to medium frequency at booster 6.
 This would simply repeat every loop.
+
+Starting from high in this example would require **3** zaps per loop -- zapping to medium in booster 0/1, then to low in booster 2/3/4, then back to high at booster 5 or 6.
 
 The input file will be in a particular format. The first line contains an integer, \`N\`, which is the number of test cases.
 \`N\` lines follow, each containing an array of **200** integers in the format above for a particular test case. For each test case, you should compute the minimum number of zaps required to bypass the faulty boosters, per loop.
