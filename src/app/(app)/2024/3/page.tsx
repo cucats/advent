@@ -16,6 +16,8 @@ Patch, nearly tripping over a coil of blinking fairy lights, manages to grab a p
 
 "You've been sent? By Santa? I fear it's too late for that. The Peppermint Accelerator is going critical!"
 
+You nod, trying to look calm. "Don't worry. I did Intro to Graphics Tick 2. What's going on?"
+
 The elf gulps. "Well, the Peppermint Accelerator is a device we use to ensure perfect minty-ness for our candy canes.
 Once we get our candy zooming faster than light, we collide them in the Spiral Infuser to create bursts of festive freshness. It's all very scientific."
 
