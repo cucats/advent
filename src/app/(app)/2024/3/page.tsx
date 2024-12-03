@@ -56,10 +56,10 @@ Medium: -----X-----X--- ...
 
 In this case, the minimum amount of zaps needed per loop is **2**.
 One such way this could happen is if the particles started at medium frequency, got zapped to low frequency after booster 1, and zapped back to medium frequency after booster 5.
+This would simply repeat every loop.
 
 The input file will be in a particular format. The first line contains an integer, \`N\`, which is the number of test cases.
-\`N\` lines follow, each containing an array of integers in the format above for a particular test case. For each test case, you should compute the minimum
-number of zaps required to bypass the faulty boosters, per loop.
+\`N\` lines follow, each containing an array of integers in the format above for a particular test case. For each test case, you should compute the minimum number of zaps required to bypass the faulty boosters, per loop.
 
 Your answer should be an integer, representing the sum of the computed minimum number of zaps for each test case.
 `;
