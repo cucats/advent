@@ -59,7 +59,7 @@ One such way this could happen is if the particles started at medium frequency, 
 This would simply repeat every loop.
 
 The input file will be in a particular format. The first line contains an integer, \`N\`, which is the number of test cases.
-\`N\` lines follow, each containing an array of integers in the format above for a particular test case. For each test case, you should compute the minimum number of zaps required to bypass the faulty boosters, per loop.
+\`N\` lines follow, each containing an array of **200** integers in the format above for a particular test case. For each test case, you should compute the minimum number of zaps required to bypass the faulty boosters, per loop.
 
 Your answer should be an integer, representing the sum of the computed minimum number of zaps for each test case.
 `;
@@ -77,7 +77,7 @@ export default async function Page() {
         href={`/api/asset?questionNo=3&assetName=q3.input.txt`}
         className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
       >
-        Download Mince Pie Locations
+        Download Booster Locations
       </a>
       <div className="flex flex-col mt-16">
         <TextAnswer
