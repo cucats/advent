@@ -58,7 +58,15 @@ In this case, the minimum amount of zaps needed per loop is **2**.
 One such way this could happen is if the particles started at medium frequency, got zapped to low frequency at booster 2/3/4, and zapped back to medium frequency at booster 6.
 This would simply repeat every loop.
 
+\`\`\`
+ Index: 012345601234560123456 ...
+   Low: -X-#==#-X-#==#-X-#==# ...
+Medium: ===#-X#===#X-#===#-X#...
+  High: --X-X----X-X----X-X-- ...
+\`\`\`
+
 Starting from high in this example would require **3** zaps per loop -- zapping to medium in booster 0/1, then to low in booster 2/3/4, then back to high at booster 5 or 6.
+
 
 The input file will be in a particular format. The first line contains an integer, \`N\`, which is the number of test cases.
 \`N\` lines follow, each containing an array of **200** integers in the format above for a particular test case. For each test case, you should compute the minimum number of zaps required to bypass the faulty boosters, per loop.
