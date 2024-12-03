@@ -19,12 +19,6 @@ Patch, nearly tripping over a coil of blinking fairy lights, manages to grab a p
 The elf gulps. "Well, the Peppermint Accelerator is a device we use to ensure perfect minty-ness for our candy canes.
 Once we get our candy zooming faster than light, we collide them in the Spiral Infuser to create bursts of festive freshness. It's all very scientific."
 
-*She leads you over to a set of stairs as she continues.*
-
-"The problem is, management sent over a new Pie-o-matic machine last week to help alleviate stress levels. This is a rather stressful environment, and it went
-into overdrive! It's now spitting out mince pies like there's no tomorrow, and hundreds have got into the accelerator! It's too late to fix the Pie-o-matic, but
-we can still save the day by reading a Christmas Spirit level for this year."
-
 *You climb the stairs to the accelerator, and sit down in front of the conspicuously festive console.*
 
 ---
