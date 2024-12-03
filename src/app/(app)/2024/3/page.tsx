@@ -54,7 +54,7 @@ Medium: -----X------X---- ...
   High: --X-X----X-X----X ...
 \`\`\`
 
-In this case, the minimum amount of zaps needed per loop is **3**.
+In this case, the minimum amount of zaps needed per loop is **2**.
 One such way this could happen is if the particles started at medium frequency, got zapped to low frequency at booster 2/3/4, and zapped back to medium frequency at booster 6.
 This would simply repeat every loop.
 
