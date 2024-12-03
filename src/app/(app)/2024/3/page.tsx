@@ -4,22 +4,20 @@ import { protectQuestion } from "@/lib/auth";
 import { getCurrentSession } from "@/lib/session";
 
 const questionThreeMarkdown = String.raw`
---- Day 3: Mince Pie Avoidance System ---
+--- Day 3: Faulty Mint Boosters ---
 
-After a long day of sleigh-riding, elf-listening, panopto-watching, and elf-ignoring, you finally pull into the Christmas Collider's parking lot.
+After a long day of sleigh-riding, elf-listening, panopto-watching, and elf-ignoring, you finally pull into the Confectionary Laboratory's parking lot.
 You jump off the sleigh, pull up your trusty quant socks, and hurry inside, with Patch close behind.
 
 You're greeted by a scene of absolute disarray. The place is littered with mince pies -- piles upon piles of them, as far as the eye can see.
-Wild-eyed white-coated elves scurry in every direction, with a pulsing ring of green and red light looming above it all: the Candy Accelerator itself!
+Wild-eyed white-coated elves scurry in every direction, with a pulsing ring of green and red light looming above it all: the Peppermint Accelerator itself!
 
 Patch, nearly tripping over a coil of blinking fairy lights, manages to grab a passing elf and drag them over to you.
 
-"You've been sent? By Santa? I fear it's too late for that. The Candy Accelerator is going critical!"
+"You've been sent? By Santa? I fear it's too late for that. The Peppermint Accelerator is going critical!"
 
-You nod, trying to look calm. "Don't worry. I did Intro to Graphics Tick 2. What's going on?"
-
-The elf gulps. "Well, the Candy Accelerator is a device we use to assess this year's Christmas Spirit levels. If we spin a candy cane fast enough, we can
-calculate the world's merriness. It's all very scientific."
+The elf gulps. "Well, the Peppermint Accelerator is a device we use to ensure perfect minty-ness for our candy canes.
+Once we get our candy zooming faster than light, we collide them in the Spiral Infuser to create bursts of festive freshness. It's all very scientific."
 
 *She leads you over to a set of stairs as she continues.*
 
@@ -31,32 +29,43 @@ we can still save the day by reading a Christmas Spirit level for this year."
 
 ---
 
-"The ring is split into **n** discrete **points**, each having **3 lanes** (\`[0,1,2]\`), with a mince pie potentially flying in one of the lanes.
-We need to write a program that moves a candy cane from **point 0** to **point n-1** without hitting any mince pies, ending in the same lane that it started in to maintain the loop.
-We have access to a quantum raygun tuned to the Merry frequency, and we can use it to bounce the candy cane between lanes. This
-raygun is very expensive though, and Santa would probably bust our elf union if we used it too much..."
+"The accelerator is a giant **ring-shaped circuit** where bursts of peppermint particles zoom around.
+The particles can vibrate at one of three frequency levels: **low**, **medium**, or **high**.
+Along the circuit, there are several **mint boosters** that interact with the particles to keep them in motion.
 
-The console beeps, and supplies you with an array of projected mince pie locations. The array index represents the **point**, and the value at that index represents the **lane** a
-mince pie is in, or \`-1\` if no mince pie is present.
+However, some of the mint boosters are faulty!
+A faulty booster cannot interact with peppermint particles at a particular frequency, so the particles must switch frequencies to bypass these faulty boosters.
 
-i.e. \`[-1, 0, 2, -1, 2, 1]\` would be interpreted as:
+Fortunately, Santa's **quantum raygun** can instantly zap the particles and change their frequency between boosters!
+However, the raygun is expensive to use, and Santa insists on minimising the number of times it's fired.
+Santa would probably bust our elf union if we used it too much...
+We need you calculate the **minimum amount of zaps** needed to avoid the faulty boosters **per loop**!"
+
+The console beeps, and supplies you with an array of mint booster statuses.
+* The **index** of the array represents the booster's position in the circuit.
+* The **value** at that index indicates the frequency the booster cannot handle:
+  * \`0\` for low,
+  * \`1\` for medium,
+  * \`2\` for high,
+  * \`-1\` means the booster is **working properly** and accepts particles of any frequency.
+
+For example, the array \`[-1, 0, 2, -1, 2, 1]\` represents the following circuit, where X denotes a faulty frequency of a booster:
 
 \`\`\`
-Points: 012345
-Lane 0: -X----
-Lane 1: -----X
-Lane 2: --X-X-
+ Index: 012345012345012 ...
+   Low: -X-----X-----X- ...
+Medium: -----X-----X--- ...
+  High: --X-X---X-X---X ...
 \`\`\`
 
-In this instance, the smallest number of bounces possible would be 2: starting in lane 0, bouncing to lane 1 at point 0, then bouncing back to lane 0 at point 2 (or point 3/4).
-If you start in lane 2, the smallest number of bounces possible would be 3: starting in lane 2, bouncing to lane 1 at point 1, bouncing to lane 0 at point 4, then
-bouncing back to lane 2 at point 5.
+In this case, the minimum amount of zaps needed per loop is **2**.
+One such way this could happen is if the particles started at medium frequency, got zapped to low frequency after booster 1, and zapped back to medium frequency after booster 5.
 
 The input file will be in a particular format. The first line contains an integer, \`N\`, which is the number of test cases.
 \`N\` lines follow, each containing an array of integers in the format above for a particular test case. For each test case, you should compute the minimum
-number of bounces required to shoot the candy cane from \`point 0\` to \`point n-1\` without hitting any mince pies, ending in the same lane that it started in.
+number of zaps required to bypass the faulty boosters, per loop.
 
-Your answer should be an integer, representing the sum of the computed minimum number of bounces for each test case.
+Your answer should be an integer, representing the sum of the computed minimum number of zaps for each test case.
 `;
 
 export default async function Page() {
