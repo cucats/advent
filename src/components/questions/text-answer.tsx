@@ -8,7 +8,7 @@ export const TextAnswer = ({
   questionNo,
   removeWhitespace,
   ignoreCase,
-  session
+  session,
 }: {
   questionNo: string;
   removeWhitespace?: boolean;
@@ -16,10 +16,8 @@ export const TextAnswer = ({
   session: SessionValidationResult;
 }) => {
   const submitAnswerMutation = trpc.submitAnswer.useMutation();
-  const {
-    data: userQuestionAnswered,
-    refetch,
-  } = trpc.getUserQuestionAnswered.useQuery({ questionNo });
+  const { data: userQuestionAnswered, refetch } =
+    trpc.getUserQuestionAnswered.useQuery({ questionNo });
   const [error, setError] = useState<string | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);

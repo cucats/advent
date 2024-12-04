@@ -37,10 +37,7 @@ export async function GET(request: NextRequest) {
   const basePath = path.resolve(path.join("src/assets", questionNo));
 
   if (!resolvedPath.startsWith(basePath)) {
-    return NextResponse.json(
-      { error: "Invalid asset path" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid asset path" }, { status: 400 });
   }
 
   const asset = await fs.readFile(resolvedPath);

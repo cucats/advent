@@ -30,11 +30,15 @@ export const QuestionList = ({
               {dateToQuestionNo(question.date).padStart(2, "0")}
             </h2>{" "}
             <p className="text-lg">{question.date}</p>
-            {question.userAnswer && (
+            {question.userAnswer ? (
               <span className="text-lg text-zinc-400">
                 ⭐ {question.userAnswer.score}
               </span>
-            )}
+            ) : question.releaseDateTime < currentDateTime ? (
+              <span className="text-lg text-zinc-400">
+                next answer worth {question.nextScore}
+              </span>
+            ) : null}
           </Link>
           <QuestionTimer releaseDateTime={question.releaseDateTime} />
         </div>

@@ -3,26 +3,43 @@ import {
   answersTable,
   questionsTable,
   questionTypeSchema,
-  selectQuestionSchema,
   usersTable,
 } from "@/db/schema";
 import { db } from "@/db";
 import { and, asc, desc, eq, sql } from "drizzle-orm";
 import { z } from "zod";
-import { getCurrentDate, questionNoToDate } from "@/lib/utils";
+import {
+  dateToQuestionNo,
+  getCurrentDate,
+  questionNoToDate,
+} from "@/lib/utils";
 import { Question } from "@/lib/types";
 import { TRPCError } from "@trpc/server";
 import { calculateScore } from "@/lib/scoring";
 
 export const appRouter = createTRPCRouter({
   getQuestions: baseProcedure.query(async () => {
-    const questions = await db.query.questionsTable.findMany();
+    const questions = await db
+      .select({
+        id: questionsTable.id,
+        date: questionsTable.date,
+        answerCount: sql<string>`COUNT(${answersTable.id})`,
+      })
+      .from(questionsTable)
+      .leftJoin(answersTable, eq(questionsTable.id, answersTable.questionId))
+      .groupBy(questionsTable.id)
+      .orderBy(desc(questionsTable.date));
+
     return questions.map((q) => {
-      const parsedQuestion = selectQuestionSchema.parse(q);
+      const nextScore = calculateScore(
+        parseInt(dateToQuestionNo(q.date)),
+        parseInt(q.answerCount) + 1
+      );
       return {
-        id: parsedQuestion.id,
-        date: parsedQuestion.date,
-        releaseDateTime: new Date(`${parsedQuestion.date}T12:00:00`),
+        id: q.id,
+        date: q.date,
+        releaseDateTime: new Date(`${q.date}T12:00:00`),
+        nextScore,
       };
     });
   }),
