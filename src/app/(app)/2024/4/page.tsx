@@ -58,6 +58,7 @@ After the cursor encounters a command, it continues in the same direction as bef
 * \`{\`: Remember this cursor location.
 * \`}\`: Go back to the location you remembered.
 * \`~\`: Terminate this thread.
+* All other characters are ignored.
 
 As you grab your tools and head to the JollyScript Console, the elves cheer behind you. "You're the only one who can fix this! We believe in you!"
 
