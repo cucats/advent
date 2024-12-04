@@ -4,6 +4,9 @@ import { protectQuestion } from "@/lib/auth";
 import { getCurrentSession } from "@/lib/session";
 
 const QuestionFourMarkdown = String.raw`
+
+**PSA: If you downloaded the program before 12:45, please re-download it, there was a small issue!**
+
 --- Day 4: JollyScript Bootcamp ---
 
 You've barely had the chance to rest on your laurels when Patch comes banging on the (gingerbread) door of your (gingerbread) hotel room.
