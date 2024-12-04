@@ -24,19 +24,21 @@ You take a deep breath. After all that Ocaml training, you can deal with ANY eso
 
 "It's the only programming language optimised for festive efficiency!" Patch exclaims unintelligently.
 
+"You said that yesterday, though?"
+
+"No, two days ago!"
+
 ---
 
 JollyScript is an enterprise grade language for intelligent elves.
 It's so festive, that every JollyScript program is shaped like a Christmas tree!
 
-JollyScript operates on a stack.
+JollyScript operates on a stack of integers.
 
-The cursor starts at the asterisk at the top of the tree \`*\`, and moves downwards. It can go either **left** or **right**. Its initial direction is **left**.
+The cursor starts at the asterisk at the top of the tree \`*\`, and moves downwards. It can go either **left** or **right**, but its initial direction is **left**.
 
-After the cursor encounters a command, it continues in the same direction as before, unless the command changes the direction.
-Here are the commands for JollyScript:
+After the cursor encounters a command, it continues in the same direction as before, unless the command changes the direction. Here are the commands for JollyScript:
 
-* \`"\`: Toggle **printing** mode. Characters encountered will instead be printed until printing mode is turned off.
 * \`/\`: Set the direction to **left**.
 * \`\\\`: Set the direction to **right**.
 * \`^\`: Fork the program into two threads, one going left, and one going right. Run the left branch completely. When that terminates, run the right branch.
@@ -47,15 +49,20 @@ Here are the commands for JollyScript:
 * \`?\`: Look at the top of the stack. If it is zero, set the direction to **left**. Otherwise, decrement the top of the stack, and set the direction to **right**.
 * \`$\`: Pop and discard the top of the stack.
 * \`0-9\`: Push a digit onto the stack.
-* \`A-F\` (Capital letters): Push a Hexadecimal digit onto the stack.
+* \`"\`: Toggle **printing** mode. Characters encountered will instead be printed until printing mode is turned off.
+* \`A-F\` (Capital letters): Push a hexadecimal digit onto the stack.
 * \`n\`: Print a newline.
 * \`{\`: Remember this cursor location.
 * \`}\`: Go back to the location you remembered.
-* \`~\`: Terminate the thread.
+* \`~\`: Terminate this thread.
 
 As you grab your tools and head to the JollyScript Console, the elves cheer behind you. "You're the only one who can fix this! We believe in you!"
 
-Your answer should be the byte number of the bug.
+You've been tasked with debugging a program that's supposed to print the **Twelve Days of Christmas**. Due to clumsy elf fingers, **exactly one** character in the program is wrong!
+
+Can you find the bug?
+
+Your answer should be the column number multiplied by the row number of the incorrect characters.
 `;
 
 export default async function Page() {
