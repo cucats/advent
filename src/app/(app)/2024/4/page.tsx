@@ -40,7 +40,7 @@ The cursor starts at the asterisk at the top of the tree \`*\`, and moves downwa
 After the cursor encounters a command, it continues in the same direction as before, unless the command changes the direction. Here are the commands for JollyScript:
 
 * \`/\`: Set the direction to **left**.
-* \`\\\`: Set the direction to **right**.
+* \`\\\`: Set the direction to **right**. *(just one backslash - markdown rendering issue)*
 * \`^\`: Fork the program into two threads, one going left, and one going right. Run the left branch completely. When that terminates, run the right branch.
 * \`:\`: Duplicate the top of the stack.
 * \`%\`: Swap the top two values of the stack.
