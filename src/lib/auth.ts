@@ -13,6 +13,8 @@ export const raven = new Raven(
   baseURL + "/login/google/callback"
 );
 
+export const ADMIN_IDS = ["7", "8"];
+
 export const protectQuestion = async (questionNo: string) => {
   try {
     await trpc.getQuestion({ questionNo });

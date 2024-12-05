@@ -16,6 +16,7 @@ import {
 import { Question } from "@/lib/types";
 import { TRPCError } from "@trpc/server";
 import { calculateScore } from "@/lib/scoring";
+import { ADMIN_IDS } from "@/lib/auth";
 
 export const appRouter = createTRPCRouter({
   getQuestions: baseProcedure.query(async () => {
@@ -45,11 +46,14 @@ export const appRouter = createTRPCRouter({
   }),
   getQuestion: baseProcedure
     .input(z.object({ questionNo: z.string() }))
-    .query(async ({ input }): Promise<Question> => {
+    .query(async ({ input, ctx }): Promise<Question> => {
       const rawDate = questionNoToDate(input.questionNo);
       const date = new Date(`${rawDate}T12:00:00`);
       const currentDate = getCurrentDate();
-      if (new Date(date) > currentDate) {
+      if (
+        new Date(date) > currentDate &&
+        !ADMIN_IDS.includes(ctx.user?.id?.toString() ?? "")
+      ) {
         throw new TRPCError({
           code: "BAD_REQUEST",
           message: "Question not released yet!",
