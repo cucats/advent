@@ -6,7 +6,7 @@ import { getCurrentSession } from "@/lib/session";
 const QuestionFiveMarkdown = String.raw`
 --- Day 5: Christmas Ornament Quality Control ---
 
-You've spent the last night staring at the (gingerbread) ceiling, reassessing your life in terms of PJ and AJ; Pre-Jollyscript and Post-Jollyscript.
+You've spent the last night staring at the (gingerbread) ceiling, reassessing your life in terms of PJ and AJ; Pre-Jollyscript and After-Jollyscript.
 It is, in fact, the only language optimised for festive efficiency. Your life will never be the same. Perhaps you can put it on your CV?
 
 It isn't long before Patch comes barging in again -- in his festiveness he trips, falls, during the fall trips again, and somehow inverts the original falling operation. *You have seen JollyScript now. Nothing can phase you.*
