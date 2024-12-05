@@ -16,7 +16,8 @@ import {
 import { Question } from "@/lib/types";
 import { TRPCError } from "@trpc/server";
 import { calculateScore } from "@/lib/scoring";
-import { ADMIN_IDS } from "@/lib/auth";
+
+const ADMIN_IDS = ["7", "8"];
 
 export const appRouter = createTRPCRouter({
   getQuestions: baseProcedure.query(async () => {
