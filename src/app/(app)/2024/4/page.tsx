@@ -29,7 +29,7 @@ You take a deep breath. After all that Ocaml training, you can deal with ANY eso
 
 "You said that yesterday, though?"
 
-"No, two days ago!"
+"I wish I could say it every day!"
 
 ---
 
@@ -69,7 +69,7 @@ Your answer should be the column number multiplied by the row number of the inco
 `;
 
 export default async function Page() {
-  const error = await protectQuestion("3");
+  const error = await protectQuestion("4");
   const session = await getCurrentSession();
   if (error) return <div>{error}</div>;
 

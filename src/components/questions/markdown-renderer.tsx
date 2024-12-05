@@ -35,7 +35,7 @@ export const MarkdownRenderer = ({ children }: { children: string }) => {
         },
       }}
     >
-      {children.replace(/\\n/gi, "\n").replace(/\\`/gi, "`")}
+      {children.replace(/\\`/gi, "`")}
     </Markdown>
   );
 };
