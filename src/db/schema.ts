@@ -15,7 +15,7 @@ export type QuestionType = z.infer<typeof questionTypeSchema>;
 
 export const usersTable = pgTable("users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  crsid: varchar({ length: 255 }).notNull().unique(),
+  crsid: varchar({ length: 255 }).notNull(),
   nickname: varchar({ length: 255 }),
   googleId: varchar({ length: 255 }).notNull().unique(),
 });

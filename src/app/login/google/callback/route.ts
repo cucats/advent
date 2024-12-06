@@ -56,8 +56,6 @@ export async function GET(request: Request): Promise<Response> {
     hd: string;
   };
 
-  console.log(claims);
-
   const googleUserId = claims.sub;
   const crsid = crsidFromEmail(claims.email);
 

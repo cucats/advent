@@ -2,7 +2,7 @@ import { TimeSpan, createDate } from "oslo";
 import { OAuth2Client } from "oslo/oauth2";
 
 const authorizeEndpoint =
-  "https://accounts.google.com/o/oauth2/v2/auth?hd=cam.ac.uk";
+  "https://accounts.google.com/o/oauth2/v2/auth";
 const tokenEndpoint = "https://oauth2.googleapis.com/token";
 
 export class Raven {
