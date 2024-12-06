@@ -11,7 +11,7 @@ export const MarkdownRenderer = ({ children }: { children: string }) => {
     <Markdown
       remarkPlugins={[remarkMath]}
       rehypePlugins={[rehypeKatex]}
-      className="prose max-w-none text-zinc-300 prose-strong:text-foreground prose-code:text-foreground"
+      className="prose max-w-none text-zinc-300 prose-strong:text-foreground prose-code:text-foreground prose-blockquote:text-zinc-400"
       components={{
         code(props) {
           const { children, className, ...rest } = props;
