@@ -23,9 +23,9 @@ class Shard:
 
 
 def main():
-    files = os.listdir("shards")
+    files = os.listdir("chunks")
     for filename in files:
-        reader = png.Reader(filename=f"shards/{filename}")
+        reader = png.Reader(filename=f"chunks/{filename}")
         width, height, pixels, metadata = reader.read()
         shard = Shard(width, height, pixels, filename)
     
