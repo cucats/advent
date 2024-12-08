@@ -16,7 +16,7 @@ Patch spots you hiding in the corner.
 
 "Uh, because you're like, the closest person to the bug? Proximity blame."
 
-"Can't argue with that. But what songs?"
+"Can't argue with that logic. Songs, you say?"
 
 "Yes! You know, the '99 Glasses of Milk on the Wall' song? It's crucial for morale! The assembly line elves sing it while they work to keep rhythm. Without it, they start... improvising."
 
