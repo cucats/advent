@@ -3,30 +3,39 @@ import { TextAnswer } from "@/components/questions/text-answer";
 import { protectQuestion } from "@/lib/auth";
 import { getCurrentSession } from "@/lib/session";
 
-const QuestionFourMarkdown = String.raw`
---- Day 4: JollyScript Bootcamp ---
+const QuestionEightMarkdown = String.raw`
+--- Day 8: Meltdown ---
 
-You've barely had the chance to rest on your laurels when Patch comes banging on the (gingerbread) door of your (gingerbread) hotel room.
+Santa's workshop is abuzz with activity, and the air is filled with the hum of festive coding and gift-making.
+This year, Santa decided to automate part of the holiday cheer with the help of some songs.
 
-"You did a great job back there, real jolly! Real merry!" He says through gritted teeth.
+Patch spots you hiding in the corner.
+"Oh, you're here again! Disaster! Catastrophe! The sing-a-song program is broken, and I'm pretty sure it's _your_ fault."
 
-You're confused -- you wrote a pretty neat algo for the Confectionery Lab's Accelerator, didn't you? There must be something else going on...
-you throw on your new Santa x Lululemon x Cambridge hoodie and brace for the biting North Pole frost.
+"But I just got here! How is this my fault?", you exclaim.
 
-You catch Patch muttering to himself; *"That was my chance! To bust the elf union! Now santa's gonna be SO mad..."*
+"Uh, because you're like, the closest person to the bug? Proximity blame."
 
-When he sees you, he flips on the merry switch and leads you excitedly outside.
+"Can't argue with that. But what songs?"
 
-"Really, that was fantastic! Super impressive! We've been talking and I think it's time for you to tackle one of the most serious bugs this Christmas
--- a crucial microservice in the Holiday Algorithm has failed, and isn't outputting what it should."
+"Yes! You know, the '99 Glasses of Milk on the Wall' song? It's crucial for morale! The assembly line elves sing it while they work to keep rhythm. Without it, they start... improvising."
 
-You take a deep breath. After all that Ocaml training, you can deal with ANY esolang. "It's written in JollyScript, isn't it."
+Patch gestures to a group of elves clumsily assembling toys.
+One elf chants, “87 marshmallows in a bag,” while another responds, “What's the next verse?”
 
-"It's the only programming language optimised for festive efficiency!" Patch exclaims unintelligently.
+"See? It's a disaster!", Patch cries. "They can't remember the lyrics, even though it's the same thing over and over.
+They're just not wired for repetition! That's why we made a program to sing it for them. But now it's broken, and instead of singing about cookies and milk, it's yelling about... Jack's Gelato."
 
-"You said that yesterday, though?"
+Patch thrusts a printout of the JollyScript program into your hands.
+The code, shaped like a festive spruce tree, sparkles with horror.
 
-"I wish I could say it every day!"
+"Why JollyScript?", as you roll your eyes. "Couldn't you go with something more standard, you know, like Haskell?"
+
+"It's the only programming language optimised for fes-" BAM! Suddenly Santa slams the door open, squishing Patch in an instant.
+Santa's debugging alarm (a giant blinking candy cane) has gone off. It turns out the JollyScript code powering the song has a bug, and now the song ends prematurely.
+Instead of going from 99 to 0, the song is in a nonsensical order!
+
+Santa growls with despair. "The elves are in a frenzy. They can't work without the song!"
 
 ---
 
@@ -83,8 +92,8 @@ This is the output of the example program.
 
 As you grab your tools and head to the JollyScript Console, the elves cheer behind you. "You're the only one who can fix this! We believe in you!"
 
-You've been tasked with debugging a program that's supposed to print the **Twelve Days of Christmas**.
-Due to clumsy elf fingers, **exactly one** character in the program is wrong!
+You've been tasked with debugging a program that's supposed to print **99 Glasses of Milk**.
+However, due to unintelligent elf brains, **exactly one** character in the program is wrong!
 
 Can you find the bug?
 
@@ -92,16 +101,16 @@ Your answer should be the location of the incorrect character, in the format \`(
 `;
 
 export default async function Page() {
-  const error = await protectQuestion("4");
+  const error = await protectQuestion("8");
   const session = await getCurrentSession();
   if (error) return <div>{error}</div>;
 
   return (
     <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
-      <MarkdownRenderer>{QuestionFourMarkdown}</MarkdownRenderer>
+      <MarkdownRenderer>{QuestionEightMarkdown}</MarkdownRenderer>
       <a
-        download="q4.input.txt"
-        href={`/api/asset?questionNo=4&assetName=q4.input.txt`}
+        download="q8.input.txt"
+        href={`/api/asset?questionNo=8&assetName=q8.input.txt`}
         className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
       >
         Download JollyScript Program
@@ -110,7 +119,7 @@ export default async function Page() {
         <TextAnswer
           removeWhitespace
           ignoreCase
-          questionNo="4"
+          questionNo="8"
           session={session}
         />
       </div>
