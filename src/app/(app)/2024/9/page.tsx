@@ -46,7 +46,7 @@ export default async function Page() {
         href={`/api/asset?questionNo=9&assetName=q9.input.txt`}
         className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
       >
-        Download JollyScript Program
+        Download Elf Answers
       </a>
       <div className="flex flex-col mt-16">
         <TextAnswer
