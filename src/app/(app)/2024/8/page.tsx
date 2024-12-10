@@ -10,7 +10,7 @@ Santa's workshop is abuzz with activity, and the air is filled with the hum of f
 This year, Santa decided to automate part of the holiday cheer with the help of some songs.
 
 Patch spots you hiding in the corner.
-"Oh, you're here again! Disaster! Catastrophe! The sing-a-song program is broken, and I'm pretty sure it's _your_ fault."
+"Oh, you're here again! Disaster! Catastrophe! The **sing-a-song program** is broken, and I'm pretty sure it's _your_ fault."
 
 "But I just got here! How is this my fault?", you exclaim.
 
@@ -18,7 +18,7 @@ Patch spots you hiding in the corner.
 
 "Can't argue with that logic. Songs, you say?"
 
-"Yes! You know, the '99 Glasses of Milk on the Wall' song? It's crucial for morale! The assembly line elves sing it while they work to keep rhythm. Without it, they start... improvising."
+"Yes! You know, the '**99 Glasses of Milk on the Wall**' song? It's crucial for morale! The assembly line elves sing it while they work to keep rhythm. Without it, they start... improvising."
 
 Patch gestures to a group of elves clumsily assembling toys.
 One elf chants, “87 marshmallows in a bag,” while another responds, “What's the next verse?”
