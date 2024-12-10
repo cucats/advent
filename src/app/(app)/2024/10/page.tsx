@@ -25,19 +25,20 @@ Santa shows you a whitepaper produced by one of his research labs, formalising t
 eventually causing all connected children by any path of friendship to become naughty.
 
 It's too late to change the number of naughty kids for this year, but you can still try to minimise the amount of naughtiness spread next year by distributing coal to certain naughty kids.
+Giving coal to a naughty child will immediately turn them nice for next year, stopping them from spreading naughtiness.
 
-Santa has identified \`k\` naughty children this Christmas, and you want to make sure they get punished -- this will immediately turn them nice for next year!
-Unfortunately, he only has \`c\` pieces of coal left, due to a logistical problem which can only be attributed to **Patch**!
-
-You can choose \`c\` children to receive coal this Christmas, which will cause them to start next year as nice. Note that they could still become naughty afterwards!
+Santa has identified \`k\` naughty children this Christmas. Unfortunately, he only has \`c\` pieces of coal left, due to a logistical problem which can only be attributed to **Patch**!
+You must determine which \`c\` naughty children should be punished this Christmas, so that the amount of naughtiness spread next year is minimised. Note that giving coal to a naughty child
+doesn't prevent them from becoming naughty again if they have a path to another naughty child.
 
 The input file will be in a specific format. The first line contains four integers, \`n\`, \`m\`, \`k\`, and \`c\`: the number of children, the number of friendships, the amount of naughty children, and the number of pieces of coal that Santa has.
 The next line contains \`k\` integers split by spaces, the list of naughty children's IDs.
 \`m\` lines follow, each representing a friendship: \`x y\` means the child with ID \`x\` is a friend of the child with ID \`y\` (and vice-versa).
 
-Your task is to find the naughty children that should be punished this Christmas.
+Your task is to find the \`c\` naughty children that should be punished this Christmas.
 
 Give the answer in the form \`x,y,z,...\`, where \`x,y,z,...\` are the IDs of the naughty children that should be punished this Christmas.
+If there are multiple choices for naughty children, choose the lowest numbered child.
 `;
 
 export default async function Page() {
