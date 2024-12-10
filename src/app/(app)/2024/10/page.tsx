@@ -38,7 +38,7 @@ The next line contains \`k\` integers split by spaces, the list of naughty child
 Your task is to find the \`c\` naughty children that should be punished this Christmas.
 
 Give the answer in the form \`x,y,z,...\`, where \`x,y,z,...\` are the IDs of the naughty children that should be punished this Christmas.
-If there are multiple choices for naughty children, choose the lowest numbered child.
+If there are multiple choices for sets of punished children, choose the lowest set lexicographically.
 `;
 
 export default async function Page() {
