@@ -106,17 +106,21 @@ Frostglide
 R, C = map(int, input().split())
 times = []
 for i in range(C):
-    reindeer, speed, turbo, duration, cooldown = map(int, input().split())
+    reindeer, speed, turbo, cooldown, duration = input().split()
+    speed = int(speed)
+    turbo = int(turbo)
+    cooldown = int(cooldown)
+    duration = int(duration)
     a_t = duration + cooldown
     a_d = turbo * duration + speed * cooldown
     time = a_t * (R // a_d)
     remaining = R % a_d
-    t_t = math.ceil(remaining / turbo)
+    t_t = math.ceil(remaining / turbo) if turbo else 1000000000000
     if t_t > duration:
         time += duration
         remaining -= duration * turbo
-        time += math.ceil(remaining / speed)
+        time += math.ceil(remaining / speed) if speed else 1000000000000
     else:
         time += t_t
     times.append((time, reindeer))
-print(f"{sorted(times)}")
+print(f"{sorted(times)[:9]}")
