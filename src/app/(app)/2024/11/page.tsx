@@ -48,7 +48,7 @@ Santa's reindeer are racing to win the governmental contract for Christmas. Each
 The first line contains \`d\`, the race course length, and \`n\`, the number of reindeer.
 \`n\` lines follow, each containing a string with the name of the reindeer, and four integers: the reindeer's normal speed, turbo speed, cooldown and turbo duration, all measured in metres and seconds.
 
-Your task is to find the **fastest three** reindeers, separated by commas.
+Your task is to find the **fastest three** reindeers, separated by commas, breaking ties alphabetically.
 `;
 
 export default async function Page() {
