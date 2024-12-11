@@ -43,7 +43,9 @@ Reader: "Please stop talking."
 
 ---
 
-The first line contains \`n\`, the number of reindeer.
+Santa's reindeer are racing to win the governmental contract for Christmas. Each reindeer has a normal speed, and a turbo speed (fuelled by carrots!) Turbos last for a certain amount of time before having to cool down. Every reindeer starts off with a fully charged carrot turbo.
+
+The first line contains \`d\`, the race course length, and \`n\`, the number of reindeer.
 \`n\` lines follow, each containing a string with the name of the reindeer, and four integers: the reindeer's normal speed, turbo speed, cooldown and turbo duration, all measured in metres and seconds.
 
 Your task is to find the **fastest three** reindeers, separated by commas.
