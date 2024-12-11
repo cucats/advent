@@ -3,7 +3,7 @@ import { TextAnswer } from "@/components/questions/text-answer";
 import { protectQuestion } from "@/lib/auth";
 import { getCurrentSession } from "@/lib/session";
 
-const QuestionNineMarkdown = String.raw`
+const QuestionElevenMarkdown = String.raw`
 --- Day 11: Reindeer Racing ---
 
 *Patch, slowly sneaking up behind you, quietly taps on your shoulder as you lay in the log cabin at West Hub... wait no... North hub...*
@@ -43,32 +43,34 @@ Reader: "Please stop talking."
 
 ---
 
-The first line contains \`n\`, the number of reindeer.
-\`n\` lines follow, each containing a string with the name of the reindeer, and four integers: the reindeer's normal speed, turbo speed, cooldown and turbo duration.
+Santa's reindeer are racing to win the governmental contract for Christmas. Each reindeer has a normal speed, and a turbo speed (fuelled by carrots!) Turbos last for a certain amount of time before having to cool down. Every reindeer starts off with a fully charged carrot turbo.
 
-Your task is to find the **fastest three** reindeers, separated by commas.
+The first line contains \`d\`, the race course length, and \`n\`, the number of reindeer.
+\`n\` lines follow, each containing a string with the name of the reindeer, and four integers: the reindeer's normal speed, turbo speed, cooldown and turbo duration, all measured in metres and seconds.
+
+Your task is to find the **fastest three** reindeers, separated by commas, breaking ties alphabetically.
 `;
 
 export default async function Page() {
-  const error = await protectQuestion("10");
+  const error = await protectQuestion("11");
   const session = await getCurrentSession();
   if (error) return <div>{error}</div>;
 
   return (
     <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
-      <MarkdownRenderer>{QuestionNineMarkdown}</MarkdownRenderer>
+      <MarkdownRenderer>{QuestionElevenMarkdown}</MarkdownRenderer>
       <a
-        download="q10.input.txt"
-        href={`/api/asset?questionNo=10&assetName=q10.input.txt`}
+        download="q11.input.txt"
+        href={`/api/asset?questionNo=11&assetName=q11.input.txt`}
         className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
       >
-        Download Elf Answers
+        Download Reindeer Data
       </a>
       <div className="flex flex-col mt-16">
         <TextAnswer
           removeWhitespace
           ignoreCase
-          questionNo="10"
+          questionNo="11"
           session={session}
         />
       </div>
