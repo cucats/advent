@@ -29,11 +29,15 @@ and, uh, now it doesn't work. But if you debug it for me, they'll think I fixed 
 
 Before you could object, Patch was already pacing, muttering about how the program was supposed to be "a snowstorm of festive elegance" but now "looked like reindeer hoofprints in wet frosting."
 
-"I mean, how hard can it be?" he said, pointing at the mess of code. "You just need to find the part where it went slightly catastrophic."
+"I mean, how hard can it be?" he said, pointing at the mess of code. "You just need to find the part where it went only *slightly* catastrophic."
 
-You glance at the program. "You're applying to **Jolly Street**?"
+You glance at the program. "You're applying to **Jolly Street**? Is that what this is all about?"
 
-"Of course! Everyone wants to intern at **Jolly Street**?"
+"Of course! Everyone wants to intern at Jolly Street?"
+
+"And of course they're big believers in JollyScript..." you mutter.
+
+"It's the only programming language optimised for festive efficiency!" Patch exclaims unintelligently.
 
 ---
 
