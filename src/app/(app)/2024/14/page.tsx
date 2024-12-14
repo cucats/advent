@@ -7,7 +7,7 @@ const QuestionFourteenMarkdown = String.raw`
 --- Day 14: Elf Internships. ---
 
 Patch burst into the room, jingling with what could only be described as unnecessary urgency:
-a toolbelt clinked with candy canes, measuring tape, and what appeared to be a rubber duck wearing a Santa hat.
+a toolbelt clinked with candy canes, measuring tape, and what appeared to be a rubber ducky debugger wearing a Santa hat.
 
 "Alright, drop everything!" Patch declared, throwing a stack of peppermint paper onto your desk. "This is it. The big one. The **Holiday Crisis**."
 
@@ -90,7 +90,7 @@ This is the output of the example program.
 
 As you grab your tools and head to the JollyScript Console, the elves cheer behind you. "You're the only one who can fix this! We believe in you!"
 
-You've been tasked with debugging a program that's supposed to print **FizzBuzz**. For every integer from 1 to 100, program
+You've been tasked with debugging a program that's supposed to print **FizzBuzz**.
 However, due to mildly unintelligent elf brains, **exactly one** character in the program is wrong!
 
 Can you find the bug?
