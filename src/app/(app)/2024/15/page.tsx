@@ -26,6 +26,9 @@ You will be given the input file in a certain format. The first line, \`n\`, is 
 the lengths of the candy canes!
 
 Calculate the maximum height of the billboard that can be achieved, given that the two supports must be an equal height.
+
+For example, if you are given candy canes of length \`1,2,3,4,5,6\`, the maximum height of the billboard is \`10\` -- you can create two supports of length \`10\` by
+gluing together the candy canes of length \`2,3,5\` and \`4,6\`.
 `;
 
 export default async function Page() {
