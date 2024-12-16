@@ -99,7 +99,7 @@ However, due to mildly unintelligent elf brains, **exactly one** character in th
 
 Can you find the bug?
 
-Your answer should be the location and corrected replacement of the incorrect character, in the format \`(line number, column number, correct character)\`.
+Your answer should be the location of the incorrect character, in the format \`(line number, column number)\`.
 `;
 
 export default async function Page() {
