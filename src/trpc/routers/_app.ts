@@ -40,7 +40,7 @@ export const appRouter = createTRPCRouter({
       return {
         id: q.id,
         date: q.date,
-        releaseDateTime: new Date(`${q.date}T12:30:00`),
+        releaseDateTime: new Date(`${q.date}T12:45:00`),
         nextScore,
       };
     });
@@ -49,7 +49,7 @@ export const appRouter = createTRPCRouter({
     .input(z.object({ questionNo: z.string() }))
     .query(async ({ input, ctx }): Promise<Question> => {
       const rawDate = questionNoToDate(input.questionNo);
-      const date = new Date(`${rawDate}T12:30:00`);
+      const date = new Date(`${rawDate}T12:45:00`);
       const currentDate = getCurrentDate();
       if (
         new Date(date) > currentDate &&
@@ -75,7 +75,7 @@ export const appRouter = createTRPCRouter({
         id: question.id,
         date: question.date,
         type: questionTypeSchema.parse(question.type),
-        releaseDateTime: new Date(`${rawDate}T12:30:00`),
+        releaseDateTime: new Date(`${rawDate}T12:45:00`),
       };
     }),
   submitAnswer: protectedProcedure
