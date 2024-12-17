@@ -30,12 +30,16 @@ corresponding elf.
 Calculate the minimum number of 'moves' required to make all the elves have an equal number of toys!
 
 Example:
+
 elves = \`[1, 0, 5]\`
+
+\`\`\`
 Move 1:    1     0 <-- 5    =>    1     1     4
 Move 2:    1 <-- 1 <-- 4    =>    2     1     3
 Move 3:    2     1 <-- 3    =>    2     2     2
+\`\`\`
 
-Answer: 3
+Answer: \`3\`
 `;
 
 export default async function Page() {
