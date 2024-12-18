@@ -69,7 +69,7 @@ export default async function Page() {
       <MarkdownRenderer>{QuestionEighteenMarkdown}</MarkdownRenderer>
       <a
         download="q18.input.txt"
-        href={\`/api/asset?questionNo=18&assetName=q18.input.txt\`}
+        href={`/api/asset?questionNo=18&assetName=q18.input.txt`}
         className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
       >
         Download ElfSpeak
