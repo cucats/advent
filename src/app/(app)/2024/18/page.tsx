@@ -40,7 +40,7 @@ The Sn0wdrift Network has scrambled its messages using a strange new sorting log
  
 
 You are given a list of words, where the words are claimed to have been sorted in alphabetical order - *but not according to the English alphabet*.
-Instead, they follow a garbled, scrambled, befuddled alphabet determined by the Sn0wdrift Network.
+Instead, they follow a garbled, scrambled, befuddled alphabet determined by the Sn0wdrift Network. However, the characters used are only lowercase English letters, and spaces.
 
 Your task is to reconstruct the alphabet order used by the Sn0wdrift Network. It is guaranteed that there exists an order.
 
