@@ -39,13 +39,13 @@ Can you decode the Sn0wdrift Network's new sorting rules and restore order to Sa
 The Sn0wdrift Network has scrambled its messages using a strange new sorting logic, and you need to deduce the sorting order it follows.
  
 
-You are given a list of words, where the words are claimed to have been sorted in alphabetical order - *but not according to the English alphabet*.
+You are given a list of strings, where the strings are claimed to have been sorted in alphabetical order - *but not according to the English alphabet*.
 Instead, they follow a garbled, scrambled, befuddled alphabet determined by the Sn0wdrift Network. However, the characters used are only lowercase English letters, and spaces.
 
 Your task is to reconstruct the alphabet order used by the Sn0wdrift Network. It is guaranteed that there exists an order.
 
-The input will be in a specific format. The first line contains an integer \`n\`, the number of words.
-The next \`n\` lines contain the words in their supposed lexicographically sorted order.
+The input will be in a specific format. The first line contains an integer \`n\`, the number of strings.
+The next \`n\` lines contain the strings in their supposed lexicographically sorted order.
 
 Your answer should be the garbled alphabet. If there are multiple possible alphabets, return the lowest one lexicographically according to the *English* alphabet.
 
@@ -54,9 +54,12 @@ Your answer should be the garbled alphabet. If there are multiple possible alpha
 ### Example
 \`\`\`
 5
-wrt", "wrf", "er", "ett", "rftt"]\`
+wrt wrf er ett rftt
+\`\`\`
 ### Output
-\`wertf\`
+\`\`\`
+wertf
+\`\`\`
 `;
 
 export default async function Page() {
