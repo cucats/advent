@@ -56,7 +56,7 @@ export default async function Page() {
         href={`/api/asset?questionNo=19&assetName=q19.input.txt`}
         className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
       >
-        Download Starting Weights
+        Download Starting Sizes
       </a>
       <div className="flex flex-col mt-16">
         <TextAnswer
