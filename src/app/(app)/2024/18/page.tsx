@@ -11,7 +11,7 @@ Originally designed to seamlessly relay messages between Santa's workshops world
 Christmas lists, toy blueprints, even Santa's personal correspondence—nothing has come through unscathed.
  
 
-“Honestly,” said Patch, nervously stacking marshmallows into a precarious tower, “I thought we fixed this! We *did* fix it! But then... something about the metadata packets got... uh... festive?”  
+"Honestly," said Patch, nervously stacking marshmallows into a precarious tower, "I thought we fixed this! We *did* fix it! But then... something about the metadata packets got... uh... festive?"  
 
 The elves are calling the phenomenon *Reindeer Code Shuffle*.
 Messages don't just arrive scrambled; they're sorted by some strange, cryptic logic no one understands.
@@ -22,15 +22,15 @@ It's as if the Sn0wdrift Network invented its own secret alphabet—and now even
 
 "It's supposed to be a list of toy requests, but instead, it's completely unintelligible.
 Sorting it alphabetically by English rules makes even less sense."
-Clearly, the Sn0wdrift Network is sorting messages according to its new “alphabet,” and your job is to figure out what it is.
+Clearly, the Sn0wdrift Network is sorting messages according to its new "alphabet," and your job is to figure out what it is.
  
 
 Santa sighed as he handed you the latest garbled transmission.
-“Fix this before Christmas Eve,” he said.
-“If I get one more priority request for a 'blöörft' toy, I'm canceling hot cocoa privileges.”  
+"Fix this before Christmas Eve," he said.
+"If I get one more priority request for a 'blöörft' toy, I'm canceling hot cocoa privileges."  
 
-Patch whispered, “No pressure, but... if you crack the code, maybe we can use it to speed up sorting for next year!
-Or, you know, make it *less* likely that every 'Nice' kid gets flagged as 'Naughty.'”  
+Patch whispered, "No pressure, but... if you crack the code, maybe we can use it to speed up sorting for next year!
+Or, you know, make it *less* likely that every 'Nice' kid gets flagged as 'Naughty.'"  
 
 Can you decode the Sn0wdrift Network's new sorting rules and restore order to Santa's communications?  
 

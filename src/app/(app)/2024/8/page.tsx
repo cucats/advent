@@ -21,7 +21,7 @@ Patch spots you hiding in the corner.
 "Yes! You know, the '**99 Glasses of Milk on the Wall**' song? It's crucial for morale! The assembly line elves sing it while they work to keep rhythm. Without it, they start... improvising."
 
 Patch gestures to a group of elves clumsily assembling toys.
-One elf chants, “87 marshmallows in a bag,” while another responds, “What's the next verse?”
+One elf chants, "87 marshmallows in a bag," while another responds, "What's the next verse?"
 
 "See? It's a disaster!", Patch cries. "They can't remember the lyrics, even though it's the same thing over and over.
 They're just not wired for repetition! That's why we made a program to sing it for them. But now it's broken, and instead of singing about cookies and milk, it's yelling about... Jack's Gelato."
