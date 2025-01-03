@@ -4,8 +4,10 @@ import { useDateTime } from "@/components/datetime-context";
 
 export const QuestionTimer = ({
   releaseDateTime,
+  skipped,
 }: {
   releaseDateTime: Date;
+  skipped: boolean;
 }) => {
   const { currentDateTime } = useDateTime();
 
@@ -14,6 +16,10 @@ export const QuestionTimer = ({
   const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
   const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+  if (skipped) {
+    return <p className="text-lg text-zinc-400">skipped</p>;
+  }
 
   if (timeRemaining < 0) {
     return <p className="text-lg text-zinc-400">released!</p>;

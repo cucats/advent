@@ -26,6 +26,7 @@ export const appRouter = createTRPCRouter({
         id: questionsTable.id,
         date: questionsTable.date,
         answerCount: sql<string>`COUNT(${answersTable.id})`,
+        answer: questionsTable.answer,
       })
       .from(questionsTable)
       .leftJoin(answersTable, eq(questionsTable.id, answersTable.questionId))
@@ -41,6 +42,7 @@ export const appRouter = createTRPCRouter({
         id: q.id,
         date: q.date,
         releaseDateTime: new Date(`${q.date}T13:00:00`),
+        skipped: q.answer === null,
         nextScore,
       };
     });

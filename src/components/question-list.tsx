@@ -21,7 +21,7 @@ export const QuestionList = ({
             href={`/2024/${dateToQuestionNo(question.date)}`}
             className={cn(
               "flex items-center space-x-4",
-              question.releaseDateTime > currentDateTime
+              question.skipped || question.releaseDateTime > currentDateTime
                 ? "pointer-events-none text-zinc-500 cursor-not-allowed"
                 : "text-zinc-200 hover:text-zinc-300"
             )}
@@ -30,7 +30,7 @@ export const QuestionList = ({
               {dateToQuestionNo(question.date).padStart(2, "0")}
             </h2>{" "}
             <p className="text-lg">{question.date}</p>
-            {question.userAnswer ? (
+            {question.skipped ? null : question.userAnswer ? (
               <span className="text-lg text-zinc-400">
                 ⭐ {question.userAnswer.score}
               </span>
@@ -40,7 +40,10 @@ export const QuestionList = ({
               </span>
             ) : null}
           </Link>
-          <QuestionTimer releaseDateTime={question.releaseDateTime} />
+          <QuestionTimer
+            releaseDateTime={question.releaseDateTime}
+            skipped={question.skipped}
+          />
         </div>
       ))}
     </div>
