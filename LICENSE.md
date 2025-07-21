@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2024 cam-comp-soc
+Copyright (c) 2024-2025 Cambridge University Computing and Technology Society
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
