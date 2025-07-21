@@ -28,7 +28,7 @@ export const Onboarding = ({
         onSuccess: () => {
           router.push("/");
         },
-      }
+      },
     );
   };
 

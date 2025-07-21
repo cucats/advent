@@ -36,7 +36,7 @@ export const appRouter = createTRPCRouter({
     return questions.map((q) => {
       const nextScore = calculateScore(
         parseInt(dateToQuestionNo(q.date)),
-        parseInt(q.answerCount) + 1
+        parseInt(q.answerCount) + 1,
       );
       return {
         id: q.id,
@@ -85,7 +85,7 @@ export const appRouter = createTRPCRouter({
       z.object({
         questionNo: z.string(),
         answer: z.string(),
-      })
+      }),
     )
     .mutation(async ({ input, ctx }) => {
       const rawDate = questionNoToDate(input.questionNo);
@@ -103,7 +103,7 @@ export const appRouter = createTRPCRouter({
       const existingAnswer = await db.query.answersTable.findFirst({
         where: and(
           eq(answersTable.userId, ctx.user.id),
-          eq(answersTable.questionId, question.id)
+          eq(answersTable.questionId, question.id),
         ),
       });
 
@@ -124,7 +124,7 @@ export const appRouter = createTRPCRouter({
         });
 
         const score = Math.ceil(
-          calculateScore(parseInt(input.questionNo), answers.length + 1)
+          calculateScore(parseInt(input.questionNo), answers.length + 1),
         );
 
         await db.insert(answersTable).values({
@@ -169,7 +169,7 @@ export const appRouter = createTRPCRouter({
       const answer = await db.query.answersTable.findFirst({
         where: and(
           eq(answersTable.userId, ctx.user.id),
-          eq(answersTable.questionId, question.id)
+          eq(answersTable.questionId, question.id),
         ),
       });
 
@@ -195,7 +195,7 @@ export const appRouter = createTRPCRouter({
       .groupBy(usersTable.id)
       .orderBy(
         desc(sql<number>`coalesce(sum(${answersTable.score}), 0)`),
-        usersTable.id
+        usersTable.id,
       );
     return leaderboard;
   }),

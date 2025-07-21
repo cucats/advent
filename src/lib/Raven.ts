@@ -1,8 +1,7 @@
 import { TimeSpan, createDate } from "oslo";
 import { OAuth2Client } from "oslo/oauth2";
 
-const authorizeEndpoint =
-  "https://accounts.google.com/o/oauth2/v2/auth";
+const authorizeEndpoint = "https://accounts.google.com/o/oauth2/v2/auth";
 const tokenEndpoint = "https://oauth2.googleapis.com/token";
 
 export class Raven {
@@ -21,7 +20,7 @@ export class Raven {
     codeVerifier: string,
     options?: {
       scopes?: string[];
-    }
+    },
   ): Promise<URL> {
     const scopes = options?.scopes ?? [];
     return await this.client.createAuthorizationURL({
@@ -33,7 +32,7 @@ export class Raven {
 
   public async validateAuthorizationCode(
     code: string,
-    codeVerifier: string
+    codeVerifier: string,
   ): Promise<GoogleTokens> {
     const result =
       await this.client.validateAuthorizationCode<AuthorizationCodeResponseBody>(
@@ -42,7 +41,7 @@ export class Raven {
           authenticateWith: "request_body",
           credentials: this.clientSecret,
           codeVerifier,
-        }
+        },
       );
     const tokens: GoogleTokens = {
       accessToken: result.access_token,
@@ -54,7 +53,7 @@ export class Raven {
   }
 
   public async refreshAccessToken(
-    refreshToken: string
+    refreshToken: string,
   ): Promise<GoogleRefreshedTokens> {
     const result =
       await this.client.refreshAccessToken<RefreshTokenResponseBody>(
@@ -62,7 +61,7 @@ export class Raven {
         {
           authenticateWith: "request_body",
           credentials: this.clientSecret,
-        }
+        },
       );
     const tokens: GoogleRefreshedTokens = {
       accessToken: result.access_token,

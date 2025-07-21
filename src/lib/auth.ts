@@ -10,7 +10,7 @@ const baseURL =
 export const raven = new Raven(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  baseURL + "/login/google/callback"
+  baseURL + "/login/google/callback",
 );
 
 export const protectQuestion = async (questionNo: string) => {

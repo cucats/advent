@@ -35,7 +35,7 @@ function getUrl() {
 export function TRPCProvider(
   props: Readonly<{
     children: React.ReactNode;
-  }>
+  }>,
 ) {
   const queryClient = getQueryClient();
   const [trpcClient] = useState(() =>
@@ -46,7 +46,7 @@ export function TRPCProvider(
           url: getUrl(),
         }),
       ],
-    })
+    }),
   );
 
   return (

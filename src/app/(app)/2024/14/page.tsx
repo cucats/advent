@@ -110,7 +110,7 @@ export default async function Page() {
   return (
     <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
       <MarkdownRenderer>{QuestionFourteenMarkdown}</MarkdownRenderer>
-    
+
       <a
         download="q14.input.txt"
         href={`/api/asset?questionNo=14&assetName=q14.input.txt`}

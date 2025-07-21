@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
   if (!questionNo || !assetName) {
     return NextResponse.json(
       { error: "Missing questionNo or assetName" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
   if (date > currentDate) {
     return NextResponse.json(
       { error: "Question not released yet!" },
-      { status: 403 }
+      { status: 403 },
     );
   }
 

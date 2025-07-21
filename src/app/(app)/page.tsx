@@ -26,11 +26,11 @@ export default async function Page() {
   }
 
   const sortedQuestions = questions.sort(
-    (a, b) => a.releaseDateTime.getTime() - b.releaseDateTime.getTime()
+    (a, b) => a.releaseDateTime.getTime() - b.releaseDateTime.getTime(),
   );
 
   const userAnswersMap = new Map(
-    userAnswers.map((answer) => [answer.questionId, answer])
+    userAnswers.map((answer) => [answer.questionId, answer]),
   );
 
   const questionsWithUserAnswers: QuestionWithUserAnswer[] =

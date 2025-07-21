@@ -23,7 +23,7 @@ export const QuestionList = ({
               "flex items-center space-x-4",
               question.skipped || question.releaseDateTime > currentDateTime
                 ? "pointer-events-none text-zinc-500 cursor-not-allowed"
-                : "text-zinc-200 hover:text-zinc-300"
+                : "text-zinc-200 hover:text-zinc-300",
             )}
           >
             <h2 className="text-lg">

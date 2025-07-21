@@ -50,7 +50,7 @@ export const TextAnswer = ({
         onError: (error) => {
           setError(error.message);
         },
-      }
+      },
     );
   };
 

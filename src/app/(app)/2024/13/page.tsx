@@ -68,8 +68,12 @@ export default async function Page() {
 
   return (
     <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
-      <MarkdownRenderer>{QuestionThirteenMarkdown(session.user?.nickname ?? session.user?.crsid ?? "Student")}</MarkdownRenderer>
-    
+      <MarkdownRenderer>
+        {QuestionThirteenMarkdown(
+          session.user?.nickname ?? session.user?.crsid ?? "Student",
+        )}
+      </MarkdownRenderer>
+
       <a
         download="q13.input.txt"
         href={`/api/asset?questionNo=13&assetName=q13.input.txt`}
