@@ -92,28 +92,28 @@ Your answer should be the location of the incorrect character, in the format \`(
 `;
 
 export default async function Page() {
-  const error = await protectQuestion("4");
-  const session = await getCurrentSession();
-  if (error) return <div>{error}</div>;
+    const error = await protectQuestion("4");
+    const session = await getCurrentSession();
+    if (error) return <div>{error}</div>;
 
-  return (
-    <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
-      <MarkdownRenderer>{QuestionFourMarkdown}</MarkdownRenderer>
-      <a
-        download="q4.input.txt"
-        href={`/api/asset?questionNo=4&assetName=q4.input.txt`}
-        className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
-      >
-        Download JollyScript Program
-      </a>
-      <div className="flex flex-col mt-16">
-        <TextAnswer
-          removeWhitespace
-          ignoreCase
-          questionNo="4"
-          session={session}
-        />
-      </div>
-    </div>
-  );
+    return (
+        <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
+            <MarkdownRenderer>{QuestionFourMarkdown}</MarkdownRenderer>
+            <a
+                download="q4.input.txt"
+                href={`/api/asset?questionNo=4&assetName=q4.input.txt`}
+                className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
+            >
+                Download JollyScript Program
+            </a>
+            <div className="flex flex-col mt-16">
+                <TextAnswer
+                    removeWhitespace
+                    ignoreCase
+                    questionNo="4"
+                    session={session}
+                />
+            </div>
+        </div>
+    );
 }
