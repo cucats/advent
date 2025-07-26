@@ -59,5 +59,18 @@
         "tailwindcss": "^3.4.17",
         "tsx": "^4.20.3",
         "typescript": "^5.8.3"
+    },
+    "prettier": {
+        "tabWidth": 4
+    },
+    "eslintConfig": {
+        "extends": [
+            "next/core-web-vitals",
+            "next/typescript",
+            "plugin:drizzle/all"
+        ],
+        "plugins": [
+            "drizzle"
+        ]
     }
 }
