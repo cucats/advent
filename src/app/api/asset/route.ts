@@ -41,5 +41,5 @@ export async function GET(request: NextRequest) {
   }
 
   const asset = await fs.readFile(resolvedPath);
-  return new NextResponse(asset, { status: 200 });
+  return new NextResponse(new Uint8Array(asset), { status: 200 });
 }
