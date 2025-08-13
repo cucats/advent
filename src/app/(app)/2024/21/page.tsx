@@ -6,12 +6,12 @@ Question writers taking a break today! :-)
 `;
 
 export default async function Page() {
-    const error = await protectQuestion("21");
-    if (error) return <div>{error}</div>;
+  const error = await protectQuestion("21");
+  if (error) return <div>{error}</div>;
 
-    return (
-        <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
-            <MarkdownRenderer>{QuestionTwentyOneMarkdown}</MarkdownRenderer>
-        </div>
-    );
+  return (
+    <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
+      <MarkdownRenderer>{QuestionTwentyOneMarkdown}</MarkdownRenderer>
+    </div>
+  );
 }

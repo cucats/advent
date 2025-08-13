@@ -4,25 +4,25 @@ import "./globals.css";
 import { TRPCProvider } from "@/trpc/client";
 
 export const metadata: Metadata = {
-    title: "CUCaTS Advent of Code 2024",
-    description: "CUCaTS Advent of Code 2024",
+  title: "CUCaTS Advent of Code 2024",
+  description: "CUCaTS Advent of Code 2024",
 };
 
 const ubuntuMono = Ubuntu_Mono({
-    subsets: ["latin"],
-    weight: ["400", "700"],
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en" className="bg-background">
-            <TRPCProvider>
-                <body className={ubuntuMono.className}>{children}</body>
-            </TRPCProvider>
-        </html>
-    );
+  return (
+    <html lang="en" className="bg-background">
+      <TRPCProvider>
+        <body className={ubuntuMono.className}>{children}</body>
+      </TRPCProvider>
+    </html>
+  );
 }

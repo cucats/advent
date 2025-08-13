@@ -50,28 +50,28 @@ Your answer should be the **sum of the answers to the test cases**.
 `;
 
 export default async function Page() {
-    const error = await protectQuestion("16");
-    const session = await getCurrentSession();
-    if (error) return <div>{error}</div>;
+  const error = await protectQuestion("16");
+  const session = await getCurrentSession();
+  if (error) return <div>{error}</div>;
 
-    return (
-        <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
-            <MarkdownRenderer>{QuestionSixteenMarkdown}</MarkdownRenderer>
-            <a
-                download="q16.input.txt"
-                href={`/api/asset?questionNo=16&assetName=q16.input.txt`}
-                className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
-            >
-                Download Jumbled up Lyrics
-            </a>
-            <div className="flex flex-col mt-16">
-                <TextAnswer
-                    removeWhitespace
-                    ignoreCase
-                    questionNo="16"
-                    session={session}
-                />
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
+      <MarkdownRenderer>{QuestionSixteenMarkdown}</MarkdownRenderer>
+      <a
+        download="q16.input.txt"
+        href={`/api/asset?questionNo=16&assetName=q16.input.txt`}
+        className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
+      >
+        Download Jumbled up Lyrics
+      </a>
+      <div className="flex flex-col mt-16">
+        <TextAnswer
+          removeWhitespace
+          ignoreCase
+          questionNo="16"
+          session={session}
+        />
+      </div>
+    </div>
+  );
 }

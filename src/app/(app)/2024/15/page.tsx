@@ -32,28 +32,28 @@ gluing together the candy canes of length \`2,3,5\` and \`4,6\`.
 `;
 
 export default async function Page() {
-    const error = await protectQuestion("15");
-    const session = await getCurrentSession();
-    if (error) return <div>{error}</div>;
+  const error = await protectQuestion("15");
+  const session = await getCurrentSession();
+  if (error) return <div>{error}</div>;
 
-    return (
-        <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
-            <MarkdownRenderer>{QuestionFifteenMarkdown}</MarkdownRenderer>
-            <a
-                download="q15.input.txt"
-                href={`/api/asset?questionNo=15&assetName=q15.input.txt`}
-                className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
-            >
-                Download JollyStreet Data
-            </a>
-            <div className="flex flex-col mt-16">
-                <TextAnswer
-                    removeWhitespace
-                    ignoreCase
-                    questionNo="15"
-                    session={session}
-                />
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
+      <MarkdownRenderer>{QuestionFifteenMarkdown}</MarkdownRenderer>
+      <a
+        download="q15.input.txt"
+        href={`/api/asset?questionNo=15&assetName=q15.input.txt`}
+        className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
+      >
+        Download JollyStreet Data
+      </a>
+      <div className="flex flex-col mt-16">
+        <TextAnswer
+          removeWhitespace
+          ignoreCase
+          questionNo="15"
+          session={session}
+        />
+      </div>
+    </div>
+  );
 }

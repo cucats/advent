@@ -34,28 +34,28 @@ there is definitely 1 other elf working that job that hasn't been asked. Therefo
 `;
 
 export default async function Page() {
-    const error = await protectQuestion("9");
-    const session = await getCurrentSession();
-    if (error) return <div>{error}</div>;
+  const error = await protectQuestion("9");
+  const session = await getCurrentSession();
+  if (error) return <div>{error}</div>;
 
-    return (
-        <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
-            <MarkdownRenderer>{QuestionNineMarkdown}</MarkdownRenderer>
-            <a
-                download="q9.input.txt"
-                href={`/api/asset?questionNo=9&assetName=q9.input.txt`}
-                className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
-            >
-                Download Elf Answers
-            </a>
-            <div className="flex flex-col mt-16">
-                <TextAnswer
-                    removeWhitespace
-                    ignoreCase
-                    questionNo="9"
-                    session={session}
-                />
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex flex-col gap-8 w-full max-w-3xl items-center p-4 mb-32 mt-8">
+      <MarkdownRenderer>{QuestionNineMarkdown}</MarkdownRenderer>
+      <a
+        download="q9.input.txt"
+        href={`/api/asset?questionNo=9&assetName=q9.input.txt`}
+        className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-900"
+      >
+        Download Elf Answers
+      </a>
+      <div className="flex flex-col mt-16">
+        <TextAnswer
+          removeWhitespace
+          ignoreCase
+          questionNo="9"
+          session={session}
+        />
+      </div>
+    </div>
+  );
 }

@@ -6,7 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    --color-background: #0d151f;
-    --color-foreground: #dd5f32;
-    --color-highlight: #ff9f60;
+  --color-background: #0d151f;
+  --color-foreground: #dd5f32;
+  --color-highlight: #ff9f60;
 }

@@ -5,36 +5,34 @@ import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 
 const DateTimeContext = createContext<{
-    currentDateTime: Date;
-    setCurrentDateTime: (date: Date) => void;
+  currentDateTime: Date;
+  setCurrentDateTime: (date: Date) => void;
 }>({
-    currentDateTime: new Date(),
-    setCurrentDateTime: () => {},
+  currentDateTime: new Date(),
+  setCurrentDateTime: () => {},
 });
 
 export const DateTimeProvider = ({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) => {
-    const [currentDateTime, setCurrentDateTime] = useState(getCurrentDate());
+  const [currentDateTime, setCurrentDateTime] = useState(getCurrentDate());
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentDateTime(getCurrentDate());
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDateTime(getCurrentDate());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-    return (
-        <DateTimeContext.Provider
-            value={{ currentDateTime, setCurrentDateTime }}
-        >
-            {children}
-        </DateTimeContext.Provider>
-    );
+  return (
+    <DateTimeContext.Provider value={{ currentDateTime, setCurrentDateTime }}>
+      {children}
+    </DateTimeContext.Provider>
+  );
 };
 
 export const useDateTime = () => {
-    return useContext(DateTimeContext);
+  return useContext(DateTimeContext);
 };
