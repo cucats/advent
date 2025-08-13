@@ -70,5 +70,6 @@
     "plugins": [
       "drizzle"
     ]
-  }
+  },
+  "prettier": {}
 }
