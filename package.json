@@ -19,7 +19,7 @@
     "@trpc/react-query": "^11.4.4",
     "@trpc/server": "^11.4.4",
     "@types/pg": "^8.15.5",
-    "arctic": "^2.3.4",
+    "arctic": "^3.7.0",
     "class-variance-authority": "^0.7.1",
     "client-only": "^0.0.1",
     "clsx": "^2.1.1",
