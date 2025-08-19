@@ -29,7 +29,7 @@
     "eslint-plugin-drizzle": "^0.2.3",
     "katex": "^0.16.22",
     "lucia": "^3.2.2",
-    "lucide-react": "^0.462.0",
+    "lucide-react": "^0.540.0",
     "next": "15.4.6",
     "oslo": "^1.2.1",
     "pg": "^8.16.3",
