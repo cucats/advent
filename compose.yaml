@@ -1,0 +1,11 @@
+services:
+  server:
+    build:
+      context: .
+      target: runner
+    restart: unless-stopped
+    ports:
+      - ${HOST_PORT}:3000
+    env_file:
+      - stack.env
+
