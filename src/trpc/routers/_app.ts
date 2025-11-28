@@ -17,7 +17,7 @@ import { Question } from "@/lib/types";
 import { TRPCError } from "@trpc/server";
 import { calculateScore } from "@/lib/scoring";
 
-const ADMIN_IDS = ["7", "8"];
+const ADMIN_IDS = ["1"];
 
 export const appRouter = createTRPCRouter({
   getQuestions: baseProcedure.query(async () => {
@@ -41,7 +41,7 @@ export const appRouter = createTRPCRouter({
       return {
         id: q.id,
         date: q.date,
-        releaseDateTime: new Date(`${q.date}T13:00:00`),
+        releaseDateTime: new Date(`${q.date}T12:00:00`),
         skipped: q.answer === null,
         nextScore,
       };
@@ -51,7 +51,7 @@ export const appRouter = createTRPCRouter({
     .input(z.object({ questionNo: z.string() }))
     .query(async ({ input, ctx }): Promise<Question> => {
       const rawDate = questionNoToDate(input.questionNo);
-      const date = new Date(`${rawDate}T13:00:00`);
+      const date = new Date(`${rawDate}T12:00:00`);
       const currentDate = getCurrentDate();
       if (
         new Date(date) > currentDate &&
@@ -77,7 +77,7 @@ export const appRouter = createTRPCRouter({
         id: question.id,
         date: question.date,
         type: questionTypeSchema.parse(question.type),
-        releaseDateTime: new Date(`${rawDate}T13:00:00`),
+        releaseDateTime: new Date(`${rawDate}T12:00:00`),
       };
     }),
   submitAnswer: protectedProcedure
