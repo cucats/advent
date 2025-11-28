@@ -9,7 +9,7 @@ export const Header = async () => {
       <div className="flex items-center gap-2 flex-wrap">
         <Link href="/" className="mr-8">
           <h1 className="text-lg font-bold text-foreground hover:text-highlight text-nowrap">
-            CUCaTS Advent Calendar 2024
+            CUCaTS December Daily Puzzles 2025
           </h1>
         </Link>
         <Link href="/about" className="">

@@ -35,7 +35,7 @@ export const Onboarding = ({
   return (
     <div className="w-screen h-screen flex flex-col items-center pt-16 space-y-4 bg-background text-zinc-300">
       <h1 className="text-foreground text-lg">
-        Welcome to Advent of CUCaTS 2024!
+        Welcome to CUCaTS December Daily Puzzles 2025!
       </h1>
       <p>Would you like to choose a nickname to show on the leaderboard?</p>
       <form onSubmit={handleSubmit} className="flex gap-4">

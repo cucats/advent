@@ -18,7 +18,7 @@ export const QuestionList = ({
       {questionsWithUserAnswers.map((question) => (
         <div key={question.id} className="w-full flex justify-between">
           <Link
-            href={`/2024/${dateToQuestionNo(question.date)}`}
+            href={`/2025/${dateToQuestionNo(question.date)}`}
             className={cn(
               "flex items-center space-x-4",
               question.skipped || question.releaseDateTime > currentDateTime
