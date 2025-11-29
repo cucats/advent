@@ -4,7 +4,7 @@ import { TRPCError } from "@trpc/server";
 
 const baseURL =
   process.env.NODE_ENV === "production"
-    ? "https://aoc.cucats.org"
+    ? "https://cc.cucats.org"
     : "http://localhost:3000";
 
 export const raven = new Raven(
