@@ -4,8 +4,8 @@ import "./globals.css";
 import { TRPCProvider } from "@/trpc/client";
 
 export const metadata: Metadata = {
-  title: "CUCaTS December Daily Puzzles 2025",
-  description: "CUCaTS December Daily Puzzles 2025",
+  title: "CUCaTS Codevent Calendar 2025",
+  description: "CUCaTS Codevent Calendar 2025",
 };
 
 const ubuntuMono = Ubuntu_Mono({
