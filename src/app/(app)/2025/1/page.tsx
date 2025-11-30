@@ -78,7 +78,7 @@ Firm 99 also purchased 1 JBO for stock 1 starting on day 1. Since the price of s
 Firm 99 wins $250 and loses $0. 250 > 2.5 * 0, hence they are shortlisted for potential of insider trading.
 
 Firm 101 purchased 1 JBO for stock 2 starting on day 0. Since the price for stock 2 drops from 1.0 (day 0) to 0.9 (day 1), Firm 101 loses the trade and gains a net profit of 1 * $-50 = $-50.
-Firm 101 purchased 100 JBOs for stock 3 starting on day 0. Since the price for stock 3 raises from 10.0 (day 2) to 100.0 (day 3), Firm 101 wins this trade and gains a net profit of 100 * $50 = $5000.
+Firm 101 purchased 100 JBOs for stock 3 starting on day 2. Since the price for stock 3 raises from 10.0 (day 2) to 100.0 (day 3), Firm 101 wins this trade and gains a net profit of 100 * $50 = $5000.
 Firm 101 wins $5000 and loses $50. 5000 > 2.5 * 50, hence they are shortlisted for potential of insider trading.
 
 Therefore the output is the integer IDs of suspected firms (99 and 101), sorted in ascending order, outputted with comma separation.
