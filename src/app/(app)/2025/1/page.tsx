@@ -4,7 +4,7 @@ import { protectQuestion } from "@/lib/auth";
 import { getCurrentSession } from "@/lib/session";
 
 const questionOneMarkdown = String.raw`
---- Intro: Ode To Our Future ---
+## --- Intro: Ode To Our Future ---
 
 As the sleigh bells began their familiar countdown to 25th December, the elves gathered beneath the frosted rafters for an official address from Mr. and Mrs. Claus.
 
@@ -20,7 +20,7 @@ Santa and the elves steered the sleigh down Trinity Street and found you there, 
 
 And so, they send you off in a sleigh to the North Pole for your first task.
 
---- Day 1: Jolly Street ---
+## --- Day 1: Jolly Street ---
 
 This year, the elves are excited about a new career opportunity: **quantitative trading**! A few renowned firms have opened new offices on the block. Jolly Street, Jingle Securities, and Tana River Trading.
 
@@ -32,7 +32,7 @@ Can you help John comb through a list of trading records, and find the firms tha
 
 ---
 
-Trading firms in the North Pole Stock Exchange are currently trading on **Jingle Binary Options (JBO)**. Each JBO is tied to the price of a certain stock and has an expiry of one day. If the price of the stock increases by the next day, the holder of the JBO will get a net profit of $+50 for each JBO they purchase. If it decreases, they get a net profit of $-50 for each JBO they purchase. If the price stays exactly the same on the next day, they have a net profit of zero.
+Trading firms in the North Pole Stock Exchange are currently trading on **Jingle Binary Options (JBO)**. Each JBO is tied to the price of a certain stock and has an expiry of one day. If the price of the stock increases by the next day, the holder of the JBO will get a net profit of +50 for each JBO they purchase. If it decreases, they get a net profit of -50 for each JBO they purchase. If the price stays exactly the same on the next day, they have a net profit of zero.
 
 You are given the time-series prices for each stock on each day, along with the JBO trading records for each trading firm. Your job is to determine companies that have total winnings **more than** 2.5x their total losses.
 
@@ -42,7 +42,7 @@ The input file will be in a special format:
   - \`N\`, the number of trading firms, 
   - \`K\`, the number of days, 
   - and \`P\`, the number of JBO purchases each firm makes.
-- The next \`M\` lines contain the stock records. Each line starts with an integer stock id, followed by \`K\` floating point numbers, all spearated by spaces, showing the price (in USD) of a particular stock on a particular day.
+- The next \`M\` lines contain the stock records. Each line starts with an integer stock id, followed by \`K\` floating point numbers, all spearated by spaces, showing the price of a particular stock on a particular day.
 - The next \`N\` lines contain the JBO trading records for each firm. Each line starts with the an integer firm id, and then contains \`P\` sets of data, separated by spaces, each individually in the format \`stock_id,0-indexed_date,volume\`.
 
 The answer should be given in a comma-separated list, sorted in increasing order, of the integer ids of firms that have total winnings **(strictly) more than** 2.5x their total losses.
@@ -53,7 +53,7 @@ Stock prices can be negative. Volume for JBOs must be a positive (non-zero) inte
 
 ---
 
-Sample Input:
+### Sample Input
 
 \`\`\`
 3 2 5 2
@@ -64,12 +64,12 @@ Sample Input:
 101 2,0,1 3,2,100
 \`\`\`
 
-Sample Output:
+### Sample Output
 \`\`\`
 99,101
 \`\`\`
 
-Explanation:
+### Explanation
 
 There are three stocks, their Stock IDs are 1, 2 and 3. There are two trading firms, their Firm IDs are 99 and 101.
 
