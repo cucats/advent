@@ -24,14 +24,17 @@ Before you could finish your question, you felt a strong pull from midair, and t
 
 "Well, this is my mission now, I guess", you thought to yourself as you fell asleep in the freezing Norweigen air.
 
+---
 
 --- Day 1: A Day at SEBNP ---
 
-This year, a few of the intelligent elves are excited about a new career opportunity: **quantitative trading**! Some renowned firms have opened new offices on the block. Jolly Street, Jingle Securities, and Tana River Trading.
+This year, a few of the intelligent elves are excited about a new career opportunity: **quantitative trading**! Some renowned firms have opened new offices on the block. Jolly Street, Jingle Securities, and Tana River Trading, to name a few.
 
-Unfortunately, it didn't take long before something started smelling fishy. John, head of the Securities and Exchange Board of North Pole (SEBNP), noticed that retail investors are consistently losing a lot of money - at least, a lot more than they should.
+It didn't take long before something started smelling fishy. John, head of the Securities and Exchange Board of North Pole (SEBNP), noticed that retail investors are consistently losing a lot of money - at least, a lot more than they should.
 
-"Some of these trading firms must have been participating in **insider trading**, and it is our job to try to find out who they are, and prosecute those responsible." says John.
+"Some of these trading firms must have been participating in **insider trading**, and it is our job to try to find out who they are, and prosecute those responsible." says John, "As the world around us becomes increasingly divided, we must try our best to promote fairness in the securities markets. Insider trading is a crime, and they are not gonna get away with this."
+
+Unfortunately, there are way too many registered proprietary trading firms in the market, and it is impossible to investigate them one by one. Therefore, John has enlisted your help to complete some initial filtering on the trading firms based on their PnL alone (profit and loss). 
 
 Can you help John comb through a list of trading records, and find the firms that have a track record of winning a lot more than they lose?
 
