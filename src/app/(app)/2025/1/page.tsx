@@ -4,7 +4,7 @@ import { protectQuestion } from "@/lib/auth";
 import { getCurrentSession } from "@/lib/session";
 
 const questionOneMarkdown = String.raw`
-## --- Intro: Ode To Our Future ---
+--- Intro: Ode To Our Future ---
 
 As the sleigh bells began their familiar countdown to 25th December, the elves gathered beneath the frosted rafters for an official address from Mr. and Mrs. Claus.
 
@@ -20,7 +20,7 @@ Santa and the elves steered the sleigh down Trinity Street and found you there, 
 
 And so, they send you off in a sleigh to the North Pole for your first task.
 
-## --- Day 1: A Day at SEBNP ---
+--- Day 1: A Day at SEBNP ---
 
 This year, a few of the intelligent elves are excited about a new career opportunity: **quantitative trading**! Some renowned firms have opened new offices on the block. Jolly Street, Jingle Securities, and Tana River Trading.
 
@@ -53,8 +53,7 @@ Stock prices can be negative. Volume for JBOs must be a positive (non-zero) inte
 
 ---
 
-### Sample Input
-
+Sample Input:
 \`\`\`
 3 2 5 2
 1 1.0 0.5 1.0 0.5 1.0
@@ -64,12 +63,12 @@ Stock prices can be negative. Volume for JBOs must be a positive (non-zero) inte
 101 2,0,1 3,2,100
 \`\`\`
 
-### Sample Output
+Sample Output:
 \`\`\`
 99,101
 \`\`\`
 
-### Explanation
+Explanation:
 
 There are three stocks, their Stock IDs are 1, 2 and 3. There are two trading firms, their Firm IDs are 99 and 101.
 
