@@ -4,21 +4,26 @@ import { protectQuestion } from "@/lib/auth";
 import { getCurrentSession } from "@/lib/session";
 
 const questionOneMarkdown = String.raw`
---- Intro: Ode To Our Future ---
+--- Intro: Requiem for Our Future ---
 
 As the sleigh bells began their familiar countdown to 25th December, the elves gathered beneath the frosted rafters for an official address from Mr. and Mrs. Claus.
 
 "It is an unusual year," Santa said, voice low. "Not only do the stockings get smaller, the world outside is frayed. There are places where armed conflict has torn daily life into pieces; towns lie emptied, supply chains are strained, and too many families wake beside rubble instead of roofs. There are other places where long, slow poverty has hardened into hunger and illness. And everywhere, human-made disasters - collapsed infrastructure, raging industrial fires, contaminated water, blackouts and broken networks - make recovery harder than it should be."
 
-Mrs. Claus folded her hands. "We can't fix every headline," she admitted, "and we won't take sides in arguments about who's to blame. But we know suffering when we see it, and we know that clever hands and kind minds can still make a difference."
+Mrs. Claus folded her hands. "It may be time to face the truth," she said, barely above a whisper. "The world's wounds are spreading faster than we can mend them. Year after year we've held on to the hope that humans would find their way back to steadier ground. But now?" She shook her head. "The suffering grows, the trust frays, and the path forward is lost in the smoke. We can't save what no longer wishes to be saved. We may have to step back... from all of it. From them."
 
-"Wait!" said Jingle, the head elf. "There's bound to be some intelligent life in Cambridge. Let's pay them a visit and see what they can do!"
+"Wait!" said Jingle, the head elf. "There's bound to be some intelligent life in Cambridge. Let's pay them a visit and see if there's anything they can do!"
 
-Santa and the elves steered the sleigh down Trinity Street and found you there, huddled over a steaming cup of Knoops.
+Santa and the elves steered the sleigh down Trinity Street and found you there, huddled over a steaming cup of Knoops. Before you realised who they were, they explained the crises the world is facing, and asked for your help.
 
-"For each problem you solve, we will reward you with **one star**!" said Holly, head of Elven Resources, with a half-smile that didn't hide the urgency in her eyes. "Get **all the stars** before 25th December, and we'll reward you greatly!"
+"You can think of this as... uh... an internship! Only for the brightest minds of the world!" said Holly, head of Elven Resources, with a half-smile that didn't hide the urgency in her eyes. "For each problem you solve, we will reward you with **one star**. If you can get **all 12 stars** by Christmas, then maybe all hope is not lost."
 
-And so, they send you off in a sleigh to the North Pole for your first task.
+Hearing that you are one of the brightest minds on planet Earth, you are filled with determination. "No problem. Sorry, just to confirm, this is a **paid** internship right?"
+
+Before you could finish your question, you felt a strong pull from midair, and the sleigh catches you just in time before turning north.
+
+"Well, this is my mission now, I guess", you thought to yourself as you fell asleep in the freezing Norweigen air.
+
 
 --- Day 1: A Day at SEBNP ---
 
