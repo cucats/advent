@@ -20,9 +20,9 @@ Santa and the elves steered the sleigh down Trinity Street and found you there, 
 
 And so, they send you off in a sleigh to the North Pole for your first task.
 
-## --- Day 1: Jolly Street ---
+## --- Day 1: A Day at SEBNP ---
 
-This year, the elves are excited about a new career opportunity: **quantitative trading**! A few renowned firms have opened new offices on the block. Jolly Street, Jingle Securities, and Tana River Trading.
+This year, a few of the intelligent elves are excited about a new career opportunity: **quantitative trading**! Some renowned firms have opened new offices on the block. Jolly Street, Jingle Securities, and Tana River Trading.
 
 Unfortunately, it didn't take long before something started smelling fishy. John, head of the Securities and Exchange Board of North Pole (SEBNP), noticed that retail investors are consistently losing a lot of money - at least, a lot more than they should.
 
